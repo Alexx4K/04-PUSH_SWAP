@@ -1,0 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   linked_lists.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/02 12:22:01 by crubio-p          #+#    #+#             */
+/*   Updated: 2026/07/02 15:54:45 by crubio-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "linked_lists.h"
+
+
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*new_node;
+
+	new_node = malloc(sizeof(t_list));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->content = content;
+	new_node->next = NULL;
+	new_node->prev = NULL;
+	new_node->index = -1;
+	return (new_node);
+}
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
+}
+
+
+
+
