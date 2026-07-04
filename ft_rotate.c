@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 15:31:30 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/02 15:52:51 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/04 12:09:13 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,31 @@ static void ft_list_rotate(t_list **stack)
 	first = *stack;
 	last = ft_lstlast(*stack);
 	*stack = first->next;
+	(*stack)->prev = NULL;
 	first->next = NULL;
+	first->prev = last;
 	last->next = first;
 }
 
 static void ft_list_reverse_rotate(t_list **stack)
 {
 	t_list	*last;
-	t_list	*prev_to_last;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	last = ft_lstlast(*stack);
-	prev_to_last = *stack;
-	while (prev_to_last->next != last)
-		prev_to_last = prev_to_last->next;
-	prev_to_last->next = NULL;
+	last->prev->next = NULL;
+	last->prev = NULL;
 	last->next = *stack;
+	(*stack)->prev = last;
 	*stack = last;
 }
 
+/// @brief Puts the first element of the stack at the bottom, effectively 
+/// rotating the stack upwards.
+/// @param stack_a Stack A
+/// @param stack_b Stack B
+/// @param operation Character indicating which stack(s) to operate on.
 void	ft_rotate(t_list **stack_a, t_list **stack_b, char operation)
 {
 	if (operation == 'a')
@@ -55,6 +60,11 @@ void	ft_rotate(t_list **stack_a, t_list **stack_b, char operation)
 	}
 }
 
+/// @brief Puts the last element of the stack at the top, effectively rotating 
+/// the stack downwards.
+/// @param stack_a Stack A
+/// @param stack_b Stack B
+/// @param operation Character indicating which stack(s) to operate on.
 void	ft_reverse_rotate(t_list **stack_a, t_list **stack_b, char operation)
 {
 	if (operation == 'a')
