@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 11:54:40 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/04 16:55:12 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/04 18:05:21 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_list
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_is_empty(const t_list *stack);
+int		ft_lstsize(t_list *lst);
 
 // Double stash functions
 void	ft_swap(t_list **stack_a, t_list **stack_b, char operation);

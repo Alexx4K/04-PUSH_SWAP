@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 12:22:01 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/04 16:54:21 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/04 18:04:11 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,17 @@ t_list	*ft_lstlast(t_list *lst)
 int	ft_is_empty(const t_list *stack)
 {
 	return (stack == NULL);
+}
+
+int	ft_lstsize(t_list *lst)
+{
+	int	size;
+
+	size = 0;
+	while (lst)
+	{
+		size++;
+		lst = lst->next;
+	}
+	return (size);
 }
