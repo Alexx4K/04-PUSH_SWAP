@@ -74,3 +74,49 @@ function compute_disorder(stack a):
 				mistakes += 1
 	return mistakes / total_pairs
 ```
+
+## VI.3.3. Estrategias requeridas
+
+1. **Algoritmo simple (O(n²)):**
+
+   Implementa al menos **un algoritmo** base perteneciente a la clase de complejidad **O(n²)**. Por ejemplo:
+
+   - Adaptación del orden por inserción
+   - Adaptación del orden por selección <- Buscamos cuál va a ser el valor del mínimo actual en  el stack (recorriendo la lista)
+   - Adaptación del orden burbuja 
+   - Métodos simples de extracción del mínimo/máximo
+
+### (Selection  Sort) - Adaptación del orden por selección 
+
+1. Buscamos cuál va a ser el valor del mínimo actual en  el stack (recorriendo la lista) y nos guardamos cuál es ese valor.
+2. Empiezo a rotar hasta que arriba esté el focking valor.
+3. Pusheas a stack_b
+4. Después de hacer todo eso -> Pushear todo b en a hasta vaciar el stack.
+
+---
+
+2. **Algoritmo intermedio (O(n√n)):**
+
+   Implementa al menos **un algoritmo** perteneciente a la clase de complejidad **O(n√n)**. Por ejemplo:
+
+   - Orden basado en chunks (dividiendo en √n chunks)
+   - Métodos de partición basados en bloques
+   - Adaptaciones del orden por buckets con √n buckets
+   - Estrategias de orden basadas en rangos
+
+### (Chunk Sort) - Orden basado en chunks (dividiendo en √n chunks)
+
+
+
+
+---
+
+3. **Algoritmo complejo (O(n log n)):**
+
+   Implementa al menos **un algoritmo** perteneciente a la clase de complejidad **O(n log n)**. Por ejemplo:
+
+   - Adaptación del orden radix (LSD o MSD)
+   - Adaptación del orden por fusión utilizando dos stacks
+   - Adaptación del orden rápido con partición por stacks
+   - Adaptación del orden por montículos
+   - Algoritmos de árbol binario indexado<>
