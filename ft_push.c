@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 15:22:13 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/04 11:56:59 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/04 16:53:07 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	ft_list_push(t_list **src, t_list **dest)
 {
 	t_list	*temp_top;
-	
+
 	if (!src || !*src)
 		return ;
 	temp_top = *src;

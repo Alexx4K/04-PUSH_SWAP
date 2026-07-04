@@ -6,12 +6,11 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 12:22:01 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/02 15:54:45 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/04 16:54:21 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
-
 
 t_list	*ft_lstnew(void *content)
 {
@@ -36,6 +35,7 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 
-
-
-
+int	ft_is_empty(const t_list *stack)
+{
+	return (stack == NULL);
+}

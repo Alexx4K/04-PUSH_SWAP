@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 12:31:57 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/04 11:59:41 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/04 16:54:09 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	ft_list_swap(t_list **stack)
 	*stack = second;
 }
 
-static void ft_ss(t_list **stack_a, t_list **stack_b)
+static void	ft_ss(t_list **stack_a, t_list **stack_b)
 {
 	ft_list_swap(stack_a);
 	ft_list_swap(stack_b);

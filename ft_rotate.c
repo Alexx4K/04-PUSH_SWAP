@@ -6,13 +6,13 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 15:31:30 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/04 12:09:13 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/04 16:52:38 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
-static void ft_list_rotate(t_list **stack)
+static void	ft_list_rotate(t_list **stack)
 {
 	t_list	*first;
 	t_list	*last;
@@ -28,7 +28,7 @@ static void ft_list_rotate(t_list **stack)
 	last->next = first;
 }
 
-static void ft_list_reverse_rotate(t_list **stack)
+static void	ft_list_reverse_rotate(t_list **stack)
 {
 	t_list	*last;
 
