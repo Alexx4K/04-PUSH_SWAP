@@ -120,3 +120,37 @@ function compute_disorder(stack a):
    - Adaptación del orden rápido con partición por stacks
    - Adaptación del orden por montículos
    - Algoritmos de árbol binario indexado<>
+
+
+## Idea Estructura de archivos
+
+```shell
+includes/
+  push_swap.h
+
+src/
+  main.c
+
+  parse/
+    parse_args.c
+    check_args.c
+
+  stack/
+    stack_new.c
+    stack_utils.c
+    stack_free.c
+    stack_index.c
+
+  ops/
+    swap.c
+    push.c
+    rotate.c
+    reverse_rotate.c
+
+  sort/
+    sort.c
+    sort_selection.c
+    sort_chunks.c
+    sort_radix.c
+    sort_small.c
+```
