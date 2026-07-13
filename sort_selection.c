@@ -3,27 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   sort_selection.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 17:48:38 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/04 18:04:50 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/13 17:46:28 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
-static void	move_pos_to_top(t_list **stack, int pos, char operation);
+/// @brief rotates the stack until pos is in the top
+/// @param stack
+/// @param value
+/// @param operation
+static void	move_pos_to_top(t_list **stack, int value, char operation)
+{}
+
+/// @brief Finds the lowest number in the stack and returns it
+/// @param stack THE stack
+/// @return the value of the lowest number in the stack
+static int  find_min_value(t_list *stack)
+{
+    int min;
+
+    min = stack->content;
+    while(stack->next != NULL)
+    {
+        if (min > stack->next->content)
+            min = stack->next->content;
+        stack = stack->next;
+    }
+    return (min);
+}
 
 void sort_selection(t_list **stack_a, t_list **stack_b)
 {
-    int pos;
+    int value;
 
-    while (stack_size(*stack_a) > 0)
+    while (!ft_is_empty(*stack_a))
     {
-        pos = find_max_pos(stack_a);
-        move_pos_to_top(stack_a, pos, 'a');
-        pb(stack_a, stack_b);
+        value = find_min_value(stack_a);
+        move_pos_to_top(stack_a, value, 'a');
+        ft_push(stack_a, stack_b, 'b');
     }
-    while (ft_lstsize(*stack_b) > 0)
-        pa(stack_a, stack_b);
+    while (!ft_is_empty(*stack_b))
+        ft_push(stack_a, stack_b, 'a');
 }
