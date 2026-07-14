@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_lists.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 11:54:40 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/04 18:05:21 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/14 13:44:46 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ int		ft_lstsize(t_list *lst);
 // Double stash functions
 void	ft_swap(t_list **stack_a, t_list **stack_b, char operation);
 void	ft_push(t_list **stack_a, t_list **stack_b, char operation);
-void	ft_rotate(t_list **stack_a, t_list **stack_b, char operation);	
+void	ft_list_rotate(t_list **stack);
+void	ft_rotate(t_list **stack_a, t_list **stack_b, char operation);
+void	ft_list_reverse_rotate(t_list **stack);
 void	ft_reverse_rotate(t_list **stack_a, t_list **stack_b, char operation);
 
 #endif

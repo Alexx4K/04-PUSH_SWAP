@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 15:31:30 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/04 16:52:38 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/14 13:43:35 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
-static void	ft_list_rotate(t_list **stack)
+void	ft_list_rotate(t_list **stack)
 {
 	t_list	*first;
 	t_list	*last;
@@ -28,7 +28,7 @@ static void	ft_list_rotate(t_list **stack)
 	last->next = first;
 }
 
-static void	ft_list_reverse_rotate(t_list **stack)
+void	ft_list_reverse_rotate(t_list **stack)
 {
 	t_list	*last;
 
@@ -42,7 +42,7 @@ static void	ft_list_reverse_rotate(t_list **stack)
 	*stack = last;
 }
 
-/// @brief Puts the first element of the stack at the bottom, effectively 
+/// @brief Puts the first element of the stack at the bottom, effectively
 /// rotating the stack upwards.
 /// @param stack_a Stack A
 /// @param stack_b Stack B
@@ -60,7 +60,7 @@ void	ft_rotate(t_list **stack_a, t_list **stack_b, char operation)
 	}
 }
 
-/// @brief Puts the last element of the stack at the top, effectively rotating 
+/// @brief Puts the last element of the stack at the top, effectively rotating
 /// the stack downwards.
 /// @param stack_a Stack A
 /// @param stack_b Stack B
