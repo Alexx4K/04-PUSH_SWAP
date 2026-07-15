@@ -2,6 +2,10 @@
 
 #include "sorting_algos.h"
 
+/// @brief Finds the position of a given value in the stack.
+/// @param stack the stack to search for the value.
+/// @param value the value to find in the stack. 
+/// @return the position of the value in the stack, or -1 if not found.
 int	find_position(t_list *stack, int value)
 {
 	int pos;
@@ -17,6 +21,10 @@ int	find_position(t_list *stack, int value)
 	return (-1);
 }
 
+/// @brief Moves the specified value to the top of the stack using rotations or 
+/// reverse rotations based on its position.
+/// @param stack the stack in which the value is to be moved.
+/// @param value the value to be moved to the top of the stack.
 static void	move_value_to_top(t_list **stack, int value)
 {
 	int pos;
@@ -34,6 +42,9 @@ static void	move_value_to_top(t_list **stack, int value)
 	}
 }
 
+/// @brief finds the minimum value in the given stack.
+/// @param stack the stack to search for the minimum value.
+/// @return the minimum value found in the stack. 
 static int	find_min_value(t_list *stack)
 {
     int	min;
@@ -47,7 +58,10 @@ static int	find_min_value(t_list *stack)
 	}
 	return (min);
 }
-
+/// @brief Sorts the elements in stack_a using the selection sort algorithm and 
+/// moves them to stack_b, then moves them back to stack_a in sorted order.
+/// @param stack_a 
+/// @param stack_b 
 void	sort_selection(t_list **stack_a, t_list **stack_b)
 {
     int	value;
