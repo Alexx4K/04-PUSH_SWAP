@@ -9,7 +9,7 @@ int	find_position(t_list *stack, int value)
 	pos = 0;
 	while (stack != NULL)
 	{
-		if (*(int *)stack->content == value)
+		if (stack->content == value)
 			return (pos);
 		stack = stack->next;
 		pos++;
@@ -24,12 +24,12 @@ static void	move_value_to_top(t_list **stack, int value)
 	pos = find_position(*stack, value);
 	if (pos <= ft_lstsize(*stack) / 2)
 	{
-		while (*(int *)(*stack)->content != value)
+		while ((*stack)->content != value)
 			ft_list_rotate(stack);
 	}
 	else
 	{
-		while (*(int *)(*stack)->content != value)
+		while ((*stack)->content != value)
 			ft_list_reverse_rotate(stack);
 	}
 }
@@ -38,11 +38,11 @@ static int	find_min_value(t_list *stack)
 {
     int	min;
 
-	min = *(int *)stack->content;
+	min = stack->content;
 	while (stack->next != NULL)
 	{
-		if (min > *(int *)stack->next->content)
-			min = *(int *)stack->next->content;
+		if (min > stack->next->content)
+			min = stack->next->content;
 		stack = stack->next;
 	}
 	return (min);

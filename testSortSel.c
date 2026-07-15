@@ -1,7 +1,6 @@
 #include "linked_lists.h"
 #include "sorting_algos.h"
 #include <stdio.h>
-#include <string.h>
 
 static void	print_stack(char *name, t_list *stack)
 {
@@ -13,7 +12,7 @@ static void	print_stack(char *name, t_list *stack)
 	}
 	while (stack)
 	{
-		printf("%d", *(int *)stack->content);
+		printf("%d", stack->content);
 		if (stack->next)
 			printf(" -> ");
 		stack = stack->next;
@@ -44,7 +43,6 @@ static void	free_stack(t_list *stack)
 	while (stack)
 	{
 		next = stack->next;
-		free(stack->content);
 		free(stack);
 		stack = next;
 	}
@@ -54,21 +52,13 @@ static int	init_stack(t_list **stack, int *values, int size)
 {
 	t_list	*new_node;
 	int		i;
-	int		*content;
 
 	i = 0;
 	while (i < size)
 	{
-		content = malloc(sizeof(int));
-		if (!content)
-			return (0);
-		*content = values[i];
-		new_node = ft_lstnew(content);
+		new_node = ft_lstnew(values[i]);
 		if (!new_node)
-		{
-			free(content);
 			return (0);
-		}
 		append_node(stack, new_node);
 		i++;
 	}
@@ -79,7 +69,7 @@ static int	is_sorted(t_list *stack)
 {
 	while (stack && stack->next)
 	{
-		if (*(int *)stack->content > *(int *)stack->next->content)
+		if (stack->content > stack->next->content)
 			return (0);
 		stack = stack->next;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_lists.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 11:54:40 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/14 13:57:46 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/15 12:58:30 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 typedef struct s_list
 {
-	void			*content;
+	int				content;
 	int				index;
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_list;
 
 // Linked list basic functions
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(int content);
 t_list	*ft_lstlast(t_list *lst);
 int		ft_is_empty(const t_list *stack);
 int		ft_lstsize(t_list *lst);

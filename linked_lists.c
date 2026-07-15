@@ -6,13 +6,13 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 12:22:01 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/04 18:04:11 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/15 12:31:52 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*new_node;
 
