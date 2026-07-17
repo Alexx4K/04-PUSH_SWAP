@@ -105,8 +105,20 @@ function compute_disorder(stack a):
    - Estrategias de orden basadas en rangos
 
 ### (Chunk Sort) - Orden basado en chunks (dividiendo en √n chunks)
+1. Calculamos el tamaño de cada chunk -> Va a ser de tamaño √n, siendo n la cantidad de elementos.
+2. Vamos metiendo los valores de chunk en chunk.
+	- Para optimizar la colocación, podemos decidir añadirlos de forma que queden en la cima o abajo según pertenece a una de las mitades del chunk.
 
+		```c
+			if (indice < mitad_del_chunk)
+				pb();
+				rb();
+			else
+				pb();
+		```
+3. Y luego vamos pusheándolos de vuelta igual. 
 
+La gracia está en que la cantidad de rotaciones va a ser bastante menor, en promedio, que de la otra manera.
 
 
 ---
