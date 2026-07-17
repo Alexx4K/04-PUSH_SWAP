@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 13:03:22 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/17 13:07:06 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/17 16:14:14 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,4 @@ void	sort_selection(t_list **stack_a, t_list **stack_b)
 	}
 	while (!ft_is_empty(*stack_b))
 		ft_push(stack_a, stack_b, 'a');
-}
+}	
