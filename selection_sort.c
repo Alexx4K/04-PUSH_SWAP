@@ -1,5 +1,16 @@
-#include "linked_lists.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   selection_sort.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/17 13:03:22 by crubio-p          #+#    #+#             */
+/*   Updated: 2026/07/17 13:04:39 by crubio-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "linked_lists.h"
 #include "sorting_algos.h"
 
 /// @brief Finds the position of a given value in the stack.
@@ -8,7 +19,7 @@
 /// @return the position of the value in the stack, or -1 if not found.
 int	find_position(t_list *stack, int value)
 {
-	int pos;
+	int	pos;
 
 	pos = 0;
 	while (stack != NULL)
@@ -27,7 +38,7 @@ int	find_position(t_list *stack, int value)
 /// @param value the value to be moved to the top of the stack.
 static void	move_value_to_top(t_list **stack, int value)
 {
-	int pos;
+	int	pos;
 
 	pos = find_position(*stack, value);
 	if (pos <= ft_lstsize(*stack) / 2)
@@ -47,7 +58,7 @@ static void	move_value_to_top(t_list **stack, int value)
 /// @return the minimum value found in the stack. 
 static int	find_min_value(t_list *stack)
 {
-    int	min;
+	int	min;
 
 	min = stack->content;
 	while (stack->next != NULL)
@@ -58,13 +69,14 @@ static int	find_min_value(t_list *stack)
 	}
 	return (min);
 }
+
 /// @brief Sorts the elements in stack_a using the selection sort algorithm and 
 /// moves them to stack_b, then moves them back to stack_a in sorted order.
 /// @param stack_a 
 /// @param stack_b 
 void	sort_selection(t_list **stack_a, t_list **stack_b)
 {
-    int	value;
+	int	value;
 
 	while (!ft_is_empty(*stack_a))
 	{
