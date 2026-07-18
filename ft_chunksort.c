@@ -6,7 +6,7 @@
 /*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 10:42:01 by cesar             #+#    #+#             */
-/*   Updated: 2026/07/18 13:41:05 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/18 14:27:52 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@
 /// @param n
 /// @return The nearest perfect square.
 /// @todo Move to a math utils
-// TODO askdjadakjd
-// TODO
-
-static	int	ft_nearest_perfect_sqrt(int	n)
+static int	ft_nearest_perfect_sqrt(int n)
 {
 	int	i;
 
@@ -41,9 +38,9 @@ void	ft_move_chunk_elems(t_list **stack_a, t_list **stack_b, int chunk_size,
 	int act_chunk)
 {
 	int	pushed_elems;
-	int pos;
+	int	pos;
 	int	first_index;
-	int last_index;
+	int	last_index;
 
 	pushed_elems = 0;
 	while (ft_is_empty(*stack_a) && pushed_elems < chunk_size)
@@ -62,6 +59,8 @@ void	ft_move_chunk_elems(t_list **stack_a, t_list **stack_b, int chunk_size,
 		pushed_elems++;
 	}
 }
+
+
 
 /// @brief Sorting algorithm that passes the elements chunk by chunk to the
 /// stack B so they are more grouped.
