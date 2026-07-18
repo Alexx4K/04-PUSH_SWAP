@@ -83,10 +83,10 @@ function compute_disorder(stack a):
 
    - Adaptación del orden por inserción
    - Adaptación del orden por selección <- Buscamos cuál va a ser el valor del mínimo actual en  el stack (recorriendo la lista)
-   - Adaptación del orden burbuja 
+   - Adaptación del orden burbuja
    - Métodos simples de extracción del mínimo/máximo
 
-### (Selection  Sort) - Adaptación del orden por selección 
+### (Selection  Sort) - Adaptación del orden por selección
 
 1. Buscamos cuál va a ser el valor del mínimo actual en  el stack (recorriendo la lista) y nos guardamos cuál es ese valor.
 2. Empiezo a rotar hasta que arriba esté el focking valor.
@@ -116,7 +116,7 @@ function compute_disorder(stack a):
 			else
 				pb();
 		```
-3. Y luego vamos pusheándolos de vuelta igual. 
+3. Y luego vamos pusheándolos de vuelta igual.
 
 La gracia está en que la cantidad de rotaciones va a ser bastante menor, en promedio, que de la otra manera.
 
@@ -132,6 +132,8 @@ La gracia está en que la cantidad de rotaciones va a ser bastante menor, en pro
    - Adaptación del orden rápido con partición por stacks
    - Adaptación del orden por montículos
    - Algoritmos de árbol binario indexado<>
+
+   
 
 
 ## Idea Estructura de archivos
