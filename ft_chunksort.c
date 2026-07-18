@@ -6,7 +6,7 @@
 /*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 10:42:01 by cesar             #+#    #+#             */
-/*   Updated: 2026/07/18 11:09:18 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/18 13:41:05 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 /// @brief Calculates the nearest perfect square root.
 /// @param n
 /// @return The nearest perfect square.
+/// @todo Move to a math utils
+// TODO askdjadakjd
+// TODO
+
 static	int	ft_nearest_perfect_sqrt(int	n)
 {
 	int	i;
@@ -28,20 +32,54 @@ static	int	ft_nearest_perfect_sqrt(int	n)
 	return (i - 1);
 }
 
-/// @brief
+/// @brief Moves the elements of the chunk to the stack B.
 /// @param stack_a
 /// @param stack_b
-/// @param n_elems
+/// @param chunk_size Size of the chunk.
+/// @param act_chunk Actual chunk.
+void	ft_move_chunk_elems(t_list **stack_a, t_list **stack_b, int chunk_size,
+	int act_chunk)
+{
+	int	pushed_elems;
+	int pos;
+	int	first_index;
+	int last_index;
+
+	pushed_elems = 0;
+	while (ft_is_empty(*stack_a) && pushed_elems < chunk_size)
+	{
+		first_index = act_chunk * chunk_size;
+		last_index = first_index + chunk_size - 1;
+		pos = ft_find_first_chunk_pos(stack_a, first_index, last_index);
+		ft_move_pos_to_top(stack_a, pos);
+		if ((*stack_a)->index < first_index + (chunk_size / 2))
+		{
+			ft_push(stack_a, stack_b, 'b');
+			ft_list_rotate(stack_b);
+		}
+		else
+			ft_push(stack_a, stack_b, 'b');
+		pushed_elems++;
+	}
+}
+
+/// @brief Sorting algorithm that passes the elements chunk by chunk to the
+/// stack B so they are more grouped.
+/// @param stack_a
+/// @param stack_b
+/// @param n_elems Number of elements to sort.
 void	ft_chunksort(t_list **stack_a, t_list **stack_b, int n_elems)
 {
 	int	chunk_size;
+	int	act_chunk;
 
 	chunk_size = ft_nearest_perfect_sqrt(n_elems);
-	
-
+	act_chunk = 0;
+	ft_move_chunk_elems(stack_a, stack_b, chunk_size, act_chunk);
 }
 
-/// @brief
+/// @brief Previous function to prepare for the chunksort. For example, we
+/// calculate the number of elements to save some lines.
 /// @param stack_a
 /// @param stack_b
 void	ft_prechunksort(t_list **stack_a, t_list **stack_b)
