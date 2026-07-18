@@ -6,7 +6,7 @@
 /*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 13:03:22 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/18 13:06:36 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/18 14:28:30 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ static int	find_min_value(t_list *stack)
 /// moves them to stack_b, then moves them back to stack_a in sorted order.
 /// @param stack_a
 /// @param stack_b
+/// @todo change so it goes index by index.
 void	sort_selection(t_list **stack_a, t_list **stack_b)
 {
 	int	value;
-	int pos;
+	int	pos;
 
 	while (!ft_is_empty(*stack_a))
 	{
