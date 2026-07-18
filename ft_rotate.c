@@ -6,12 +6,14 @@
 /*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 15:31:30 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/14 13:43:35 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/18 13:25:46 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
+/// @brief Puts the top element in the bottom of the stack.
+/// @param stack
 void	ft_list_rotate(t_list **stack)
 {
 	t_list	*first;
@@ -28,6 +30,8 @@ void	ft_list_rotate(t_list **stack)
 	last->next = first;
 }
 
+/// @brief Puts the bottom element in the top of the stack.
+/// @param stack
 void	ft_list_reverse_rotate(t_list **stack)
 {
 	t_list	*last;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 12:31:57 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/15 12:58:09 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/18 13:26:24 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,16 @@ static void	ft_list_swap(t_list **stack)
 	*stack = second;
 }
 
+/// @brief Swaps in both stacks.
+/// @param stack_a
+/// @param stack_b
 static void	ft_ss(t_list **stack_a, t_list **stack_b)
 {
 	ft_list_swap(stack_a);
 	ft_list_swap(stack_b);
 }
 
-/// @brief Swaps the first two elements of the given stack(s) based on the 
+/// @brief Swaps the first two elements of the given stack(s) based on the
 /// operation character.
 /// @param stack_a Stack A
 /// @param stack_b Stack B

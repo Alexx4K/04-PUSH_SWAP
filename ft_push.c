@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 15:22:13 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/04 16:53:07 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/18 13:24:17 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
+/// @brief Pushes the element in the top of the non-empty src list to
+/// the dest list.
+/// @param src Top element's source.
+/// @param dest Destination.
 static void	ft_list_push(t_list **src, t_list **dest)
 {
 	t_list	*temp_top;
@@ -28,7 +32,7 @@ static void	ft_list_push(t_list **src, t_list **dest)
 	*dest = temp_top;
 }
 
-/// @brief Pushes the top element from one stack to another based on the 
+/// @brief Pushes the top element from one stack to another based on the
 /// operation character.
 /// @param stack_a Stack A
 /// @param stack_b Stack B
