@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_chunksort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 10:42:01 by cesar             #+#    #+#             */
-/*   Updated: 2026/07/18 14:27:52 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/22 13:47:15 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void	ft_move_chunk_elems(t_list **stack_a, t_list **stack_b, int chunk_size,
 	pushed_elems = 0;
 	while (ft_is_empty(*stack_a) && pushed_elems < chunk_size)
 	{
-		first_index = act_chunk * chunk_size;
+		first_index = (act_chunk * chunk_size) + 1;
 		last_index = first_index + chunk_size - 1;
 		pos = ft_find_first_chunk_pos(stack_a, first_index, last_index);
 		ft_move_pos_to_top(stack_a, pos);
-		if ((*stack_a)->index < first_index + (chunk_size / 2))
+		if ((*stack_a)->content < first_index + (chunk_size / 2))
 		{
 			ft_push(stack_a, stack_b, 'b');
 			ft_list_rotate(stack_b);
@@ -60,7 +60,18 @@ void	ft_move_chunk_elems(t_list **stack_a, t_list **stack_b, int chunk_size,
 	}
 }
 
+void	ft_push_sorted_to_a(t_list **stack_a, t_list **stack_b, int max_index)
+{
+	int	pos;
 
+	while (max_index > 0)
+	{
+		pos = find_position(*stack_b, max_index);
+		ft_move_pos_to_top(stack_b, pos);
+		ft_push(stack_a, stack_b, 'a');
+		max_index--;
+	}
+}
 
 /// @brief Sorting algorithm that passes the elements chunk by chunk to the
 /// stack B so they are more grouped.
@@ -75,6 +86,7 @@ void	ft_chunksort(t_list **stack_a, t_list **stack_b, int n_elems)
 	chunk_size = ft_nearest_perfect_sqrt(n_elems);
 	act_chunk = 0;
 	ft_move_chunk_elems(stack_a, stack_b, chunk_size, act_chunk);
+	ft_push_sorted_to_a(stack_a, stack_b, n_elems);
 }
 
 /// @brief Previous function to prepare for the chunksort. For example, we

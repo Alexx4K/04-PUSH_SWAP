@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 11:54:40 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/15 12:58:30 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/22 13:42:08 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 typedef struct s_list
 {
 	int				content;
-	int				index;
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_list;
