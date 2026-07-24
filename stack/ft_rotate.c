@@ -6,7 +6,7 @@
 /*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 15:31:30 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/18 13:25:46 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/24 18:22:14 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 /// @brief Puts the top element in the bottom of the stack.
 /// @param stack
-void	ft_list_rotate(t_list **stack)
+void	ft_list_rotate(t_stack **stack)
 {
-	t_list	*first;
-	t_list	*last;
+	t_stack	*first;
+	t_stack	*last;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
@@ -32,9 +32,9 @@ void	ft_list_rotate(t_list **stack)
 
 /// @brief Puts the bottom element in the top of the stack.
 /// @param stack
-void	ft_list_reverse_rotate(t_list **stack)
+void	ft_list_reverse_rotate(t_stack **stack)
 {
-	t_list	*last;
+	t_stack	*last;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
@@ -51,7 +51,7 @@ void	ft_list_reverse_rotate(t_list **stack)
 /// @param stack_a Stack A
 /// @param stack_b Stack B
 /// @param operation Character indicating which stack(s) to operate on.
-void	ft_rotate(t_list **stack_a, t_list **stack_b, char operation)
+void	ft_rotate(t_stack **stack_a, t_stack **stack_b, char operation)
 {
 	if (operation == 'a')
 		ft_list_rotate(stack_a);
@@ -69,7 +69,7 @@ void	ft_rotate(t_list **stack_a, t_list **stack_b, char operation)
 /// @param stack_a Stack A
 /// @param stack_b Stack B
 /// @param operation Character indicating which stack(s) to operate on.
-void	ft_reverse_rotate(t_list **stack_a, t_list **stack_b, char operation)
+void	ft_reverse_rotate(t_stack **stack_a, t_stack **stack_b, char operation)
 {
 	if (operation == 'a')
 		ft_list_reverse_rotate(stack_a);

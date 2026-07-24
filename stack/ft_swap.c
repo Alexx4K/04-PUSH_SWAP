@@ -6,7 +6,7 @@
 /*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 12:31:57 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/18 13:26:24 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/24 18:23:12 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 /// @brief Swaps the first two elements of the given stack.
 /// @param stack Pointer to the stack to operate on.
-static void	ft_list_swap(t_list **stack)
+static void	ft_list_swap(t_stack **stack)
 {
-	t_list	*first;
-	t_list	*second;
+	t_stack	*first;
+	t_stack	*second;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
@@ -35,7 +35,7 @@ static void	ft_list_swap(t_list **stack)
 /// @brief Swaps in both stacks.
 /// @param stack_a
 /// @param stack_b
-static void	ft_ss(t_list **stack_a, t_list **stack_b)
+static void	ft_ss(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_list_swap(stack_a);
 	ft_list_swap(stack_b);
@@ -46,7 +46,7 @@ static void	ft_ss(t_list **stack_a, t_list **stack_b)
 /// @param stack_a Stack A
 /// @param stack_b Stack B
 /// @param operation Character indicating which stack(s) to operate on.
-void	ft_swap(t_list **stack_a, t_list **stack_b, char operation)
+void	ft_swap(t_stack **stack_a, t_stack **stack_b, char operation)
 {
 	if (operation == 'a')
 		ft_list_swap(stack_a);

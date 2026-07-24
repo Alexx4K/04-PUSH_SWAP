@@ -2,7 +2,7 @@
 #include "sorting_algos.h"
 #include <stdio.h>
 
-static void	print_stack(char *name, t_list *stack)
+static void	print_stack(char *name, t_stack *stack)
 {
 	printf("%s: ", name);
 	if (!stack)
@@ -20,9 +20,9 @@ static void	print_stack(char *name, t_list *stack)
 	printf("\n");
 }
 
-static void	append_node(t_list **stack, t_list *new_node)
+static void	append_node(t_stack **stack, t_stack *new_node)
 {
-	t_list	*last;
+	t_stack	*last;
 
 	if (!stack || !new_node)
 		return ;
@@ -36,9 +36,9 @@ static void	append_node(t_list **stack, t_list *new_node)
 	new_node->prev = last;
 }
 
-static void	free_stack(t_list *stack)
+static void	free_stack(t_stack *stack)
 {
-	t_list	*next;
+	t_stack	*next;
 
 	while (stack)
 	{
@@ -48,9 +48,9 @@ static void	free_stack(t_list *stack)
 	}
 }
 
-static int	init_stack(t_list **stack, int *values, int size)
+static int	init_stack(t_stack **stack, int *values, int size)
 {
-	t_list	*new_node;
+	t_stack	*new_node;
 	int		i;
 
 	i = 0;
@@ -65,7 +65,7 @@ static int	init_stack(t_list **stack, int *values, int size)
 	return (1);
 }
 
-static int	is_sorted(t_list *stack)
+static int	is_sorted(t_stack *stack)
 {
 	while (stack && stack->next)
 	{
@@ -78,8 +78,8 @@ static int	is_sorted(t_list *stack)
 
 void	test_sort_selection(void)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 	int		values[] = {5, 2, 8, 1, 9};
 	int		size = 5;
 

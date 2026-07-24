@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_lists.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 11:54:40 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/22 13:42:08 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/24 18:19:28 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 
 # include <stdlib.h>
 
-typedef struct s_list
+typedef struct s_stack
 {
 	int				content;
-	struct s_list	*next;
-	struct s_list	*prev;
-}	t_list;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}	t_stack;
 
 // Linked list basic functions
-t_list	*ft_lstnew(int content);
-t_list	*ft_lstlast(t_list *lst);
-int		ft_is_empty(const t_list *stack);
-int		ft_lstsize(t_list *lst);
+t_stack	*ft_lstnew(int content);
+t_stack	*ft_lstlast(t_stack *lst);
+int		ft_is_empty(const t_stack *stack);
+int		ft_lstsize(t_stack *lst);
 
 // Double stash functions
-void	ft_swap(t_list **stack_a, t_list **stack_b, char operation);
-void	ft_push(t_list **stack_a, t_list **stack_b, char operation);
-void	ft_list_rotate(t_list **stack);
-void	ft_rotate(t_list **stack_a, t_list **stack_b, char operation);
-void	ft_list_reverse_rotate(t_list **stack);
-void	ft_reverse_rotate(t_list **stack_a, t_list **stack_b, char operation);
+void	ft_swap(t_stack **stack_a, t_stack **stack_b, char operation);
+void	ft_push(t_stack **stack_a, t_stack **stack_b, char operation);
+void	ft_list_rotate(t_stack **stack);
+void	ft_rotate(t_stack **stack_a, t_stack **stack_b, char operation);
+void	ft_list_reverse_rotate(t_stack **stack);
+void	ft_reverse_rotate(t_stack **stack_a, t_stack **stack_b, char operation);
 
 #endif

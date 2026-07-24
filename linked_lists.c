@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   linked_lists.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 12:22:01 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/22 13:45:54 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/24 18:14:07 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 
-/// @brief Creates a node of t_list type.
+/// @brief Creates a node of t_stack type.
 /// @param content The content in the node.
-/// @return The pointer to that t_list
-t_list	*ft_lstnew(int content)
+/// @return The pointer to that t_stack
+t_stack	*ft_lstnew(int content)
 {
-	t_list	*new_node;
+	t_stack	*new_node;
 
-	new_node = malloc(sizeof(t_list));
+	new_node = malloc(sizeof(t_stack));
 	if (new_node == NULL)
 		return (NULL);
 	new_node->content = content;
@@ -31,7 +31,7 @@ t_list	*ft_lstnew(int content)
 /// @brief Finds the last element in the list.
 /// @param lst
 /// @return A pointer tu the last element.
-t_list	*ft_lstlast(t_list *lst)
+t_stack	*ft_lstlast(t_stack *lst)
 {
 	if (lst == NULL)
 		return (NULL);
@@ -43,7 +43,7 @@ t_list	*ft_lstlast(t_list *lst)
 /// @brief If the stack is NULL, it means that it's empty
 /// @param stack
 /// @return 1 if empty, 0 if not.
-int	ft_is_empty(const t_list *stack)
+int	ft_is_empty(const t_stack *stack)
 {
 	return (stack == NULL);
 }
@@ -51,7 +51,7 @@ int	ft_is_empty(const t_list *stack)
 /// @brief Counts the number of elements in the list.
 /// @param lst
 /// @return The size of the list.
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_stack *lst)
 {
 	int	size;
 

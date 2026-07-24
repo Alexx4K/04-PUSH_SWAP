@@ -6,7 +6,7 @@
 /*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 13:03:22 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/18 14:28:30 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/24 18:19:31 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /// @brief finds the minimum value in the given stack.
 /// @param stack the stack to search for the minimum value.
 /// @return the minimum value found in the stack.
-static int	find_min_value(t_list *stack)
+static int	find_min_value(t_stack *stack)
 {
 	int	min;
 
@@ -35,7 +35,7 @@ static int	find_min_value(t_list *stack)
 /// @param stack_a
 /// @param stack_b
 /// @todo change so it goes index by index.
-void	sort_selection(t_list **stack_a, t_list **stack_b)
+void	sort_selection(t_stack **stack_a, t_stack **stack_b)
 {
 	int	value;
 	int	pos;

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_radix.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 19:15:00 by aarellan          #+#    #+#             */
-/*   Updated: 2026/07/24 13:55:01 by aarellan         ###   ########.fr       */
+/*   Updated: 2026/07/24 18:16:53 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 #include "sorting_algos.h"
 
-void	ft_radix_sort(t_list **stack_a, t_list **stack_b)
+void	ft_radix_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	int	size;
 	int	max_bits;

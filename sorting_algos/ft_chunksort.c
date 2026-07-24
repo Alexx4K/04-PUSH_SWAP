@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_chunksort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 10:42:01 by cesar             #+#    #+#             */
-/*   Updated: 2026/07/22 13:47:15 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/24 18:16:23 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	ft_nearest_perfect_sqrt(int n)
 /// @param stack_b
 /// @param chunk_size Size of the chunk.
 /// @param act_chunk Actual chunk.
-void	ft_move_chunk_elems(t_list **stack_a, t_list **stack_b, int chunk_size,
+void	ft_move_chunk_elems(t_stack **stack_a, t_stack **stack_b, int chunk_size,
 	int act_chunk)
 {
 	int	pushed_elems;
@@ -60,7 +60,7 @@ void	ft_move_chunk_elems(t_list **stack_a, t_list **stack_b, int chunk_size,
 	}
 }
 
-void	ft_push_sorted_to_a(t_list **stack_a, t_list **stack_b, int max_index)
+void	ft_push_sorted_to_a(t_stack **stack_a, t_stack **stack_b, int max_index)
 {
 	int	pos;
 
@@ -78,7 +78,7 @@ void	ft_push_sorted_to_a(t_list **stack_a, t_list **stack_b, int max_index)
 /// @param stack_a
 /// @param stack_b
 /// @param n_elems Number of elements to sort.
-void	ft_chunksort(t_list **stack_a, t_list **stack_b, int n_elems)
+void	ft_chunksort(t_stack **stack_a, t_stack **stack_b, int n_elems)
 {
 	int	chunk_size;
 	int	act_chunk;
@@ -93,7 +93,7 @@ void	ft_chunksort(t_list **stack_a, t_list **stack_b, int n_elems)
 /// calculate the number of elements to save some lines.
 /// @param stack_a
 /// @param stack_b
-void	ft_prechunksort(t_list **stack_a, t_list **stack_b)
+void	ft_prechunksort(t_stack **stack_a, t_stack **stack_b)
 {
 	int	n_elems;
 

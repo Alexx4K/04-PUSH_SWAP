@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_adaptive.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 19:16:00 by aarellan          #+#    #+#             */
-/*   Updated: 2026/07/20 19:16:00 by aarellan         ###   ########.fr       */
+/*   Updated: 2026/07/24 18:16:40 by cesar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
 #include "sorting_algos.h"
 
-float	ft_compute_disorder(t_list *stack)
+float	ft_compute_disorder(t_stack *stack)
 {
-	t_list	*i;
-	t_list	*j;
+	t_stack	*i;
+	t_stack	*j;
 	int		total_pairs;
 	int		mistakes;
 
@@ -40,7 +40,7 @@ float	ft_compute_disorder(t_list *stack)
 	return ((float)mistakes / total_pairs);
 }
 
-void	ft_exec_strategy_dispatch(t_list **stack_a, t_list **stack_b,
+void	ft_exec_strategy_dispatch(t_stack **stack_a, t_stack **stack_b,
 			int forced_strat, float disorder)
 {
 	if (forced_strat == 0)
