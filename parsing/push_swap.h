@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 11:27:45 by plopez-l          #+#    #+#             */
-/*   Updated: 2026/07/24 19:27:21 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/24 19:38:15 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,13 @@
 # include "libft/libft.h"
 // @todo comprobar que librerías son necesarias.
 
-typedef struct s_stack
-{
-	int		content;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}	t_stack;
-
 //parser.c
+
 int		is_valid_number(const char *str);
 int		str_equals(const char *a, const char *b);
 long	str_to_long(const char *str);
 void	store_number(char *str, int *numbers, int *count, char **nbr_strs);
-void	parse_tokens(char **nbr_strs, int *flag_coun, int *numbers, int *count);
+void	parse_tokens(char **nbr_strs, int *flag_count, int *numbers, int *count);
 
 //utils.c
 
@@ -45,7 +39,7 @@ int		compute_max_size(int argc, char **argv);
 
 int		get_flag_type(const char *str);
 int		has_conflict(int *counts);
-void	ft_init_flags(int *flag_coun);
+void	ft_init_flags(int *flag_count);
 
 //list_utils.c
 

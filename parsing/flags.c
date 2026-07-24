@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plopez-l <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 13:59:09 by plopez-l          #+#    #+#             */
-/*   Updated: 2026/07/22 14:35:53 by plopez-l         ###   ########.fr       */
+/*   Updated: 2026/07/24 19:36:59 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ int	has_conflict(int *counts)
 	return (total > 1);
 }
 
-void	ft_init_flags(int *flag_coun)
+void	ft_init_flags(int *flag_count)
 {
 	int	i;
 
 	i = 0;
 	while (i < 5)
-		flag_coun[i++] = 0;
+		flag_count[i++] = 0;
 }

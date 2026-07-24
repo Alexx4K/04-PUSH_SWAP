@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 14:22:16 by plopez-l          #+#    #+#             */
-/*   Updated: 2026/07/23 16:23:37 by aarellan         ###   ########.fr       */
+/*   Updated: 2026/07/24 19:36:40 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	store_number(char *str, int *numbers, int *count, char **nbr_strs)
 	(*count)++;
 }
 
-void	parse_tokens(char **nbr_strs, int *flag_coun, int *numbers, int *count)
+void	parse_tokens(char **nbr_strs, int *flag_count, int *numbers, int *count)
 {
 	int	j;
 	int	type;
@@ -89,7 +89,7 @@ void	parse_tokens(char **nbr_strs, int *flag_coun, int *numbers, int *count)
 	{
 		type = get_flag_type(nbr_strs[j]);
 		if (type != 0)
-			flag_coun[type - 1]++;
+			flag_count[type - 1]++;
 		else
 			store_number(nbr_strs[j], numbers, count, nbr_strs);
 		j++;
