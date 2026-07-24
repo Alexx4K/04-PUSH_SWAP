@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 15:22:13 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/24 18:20:44 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/24 19:51:17 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	ft_list_push(t_stack **src, t_stack **dest)
 void	ft_push(t_stack **stack_a, t_stack **stack_b, char operation)
 {
 	if (operation == 'a')
-		ft_stack_push(stack_b, stack_a);
+		ft_list_push(stack_b, stack_a);
 	if (operation == 'b')
-		ft_stack_push(stack_a, stack_b);
+		ft_list_push(stack_a, stack_b);
 }

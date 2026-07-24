@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   testing_main.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 00:00:00 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/24 18:24:26 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/24 19:52:13 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static int	node_value(t_stack *node)
 {
-	return (*(int *)node->content);
+	return (node->content);
 }
 
 static void	print_stack(char *name, t_stack *stack)
@@ -96,7 +96,7 @@ static int	init_stack_a(t_stack **stack_a, int *values, int size)
 	i = 0;
 	while (i < size)
 	{
-		new_node = ft_lstnew(&values[i]);
+		new_node = ft_lstnew(values[i]);
 		if (!new_node)
 			return (0);
 		append_node(stack_a, new_node);

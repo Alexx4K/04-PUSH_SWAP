@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_chunksort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 10:42:01 by cesar             #+#    #+#             */
-/*   Updated: 2026/07/24 18:16:23 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/24 19:48:57 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "link.h"
+#include "linked_lists.h"
 #include "sorting_algos.h"
 
 /// @brief Calculates the nearest perfect square root.
@@ -43,11 +43,11 @@ void	ft_move_chunk_elems(t_stack **stack_a, t_stack **stack_b, int chunk_size,
 	int	last_index;
 
 	pushed_elems = 0;
-	while (ft_is_empty(*stack_a) && pushed_elems < chunk_size)
+	while (!ft_is_empty(*stack_a) && pushed_elems < chunk_size)
 	{
 		first_index = (act_chunk * chunk_size) + 1;
 		last_index = first_index + chunk_size - 1;
-		pos = ft_find_first_chunk_pos(stack_a, first_index, last_index);
+		pos = ft_find_first_chunk_pos(*stack_a, first_index, last_index);
 		ft_move_pos_to_top(stack_a, pos);
 		if ((*stack_a)->content < first_index + (chunk_size / 2))
 		{

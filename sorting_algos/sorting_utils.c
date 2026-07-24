@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 13:02:49 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/24 18:14:07 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/24 19:50:56 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_find_first_chunk_pos(t_stack *stack, int chunk_min, int chunk_max)
 	pos = 0;
 	while (stack != NULL)
 	{
-		if (stack->content >= chunk_min || stack->content <= chunk_max)
+		if (stack->content >= chunk_min && stack->content <= chunk_max)
 			return (pos);
 		stack = stack->next;
 		pos++;
