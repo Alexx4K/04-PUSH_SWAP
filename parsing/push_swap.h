@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: plopez-l <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 11:27:45 by plopez-l          #+#    #+#             */
-/*   Updated: 2026/07/24 15:44:26 by plopez-l         ###   ########.fr       */
+/*   Updated: 2026/07/24 19:27:21 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include "LIBFT/libft.h"
-// comprobar que librerías son necesarias.
+# include "libft/libft.h"
+// @todo comprobar que librerías son necesarias.
 
 typedef struct s_stack
 {
@@ -51,48 +52,36 @@ void	ft_init_flags(int *flag_coun);
 t_stack	*new_node(int value);
 t_stack	*build_list(int *numbers, int count);
 
-//sort_simple.c
 
-int		find_min_position(t_stack *a);
-void	rotate_to_top(t_stack *a, int pos, int size);
-void	sort_simple(t_stack **a, t_stack **b, int n);
+// PHASE 2: Stacks and Sorting
 
-//move_swap.c
+typedef struct s_stack
+{
+	int				content;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}	t_stack;
 
-void	swap(t_stack *stack);
-int		swap_a(t_stack *stack);
-int		swap_b(t_stack *stack);
-int		swap_ss(t_stack *a, t_stack *b);
+// Linked list basic functions
+t_stack	*ft_lstnew(int content);
+t_stack	*ft_lstlast(t_stack *lst);
+int		ft_is_empty(const t_stack *stack);
+int		ft_lstsize(t_stack *lst);
 
-//move_push.c
+// Double stash functions
+void	ft_swap(t_stack **stack_a, t_stack **stack_b, char operation);
+void	ft_push(t_stack **stack_a, t_stack **stack_b, char operation);
+void	ft_list_rotate(t_stack **stack);
+void	ft_rotate(t_stack **stack_a, t_stack **stack_b, char operation);
+void	ft_list_reverse_rotate(t_stack **stack);
+void	ft_reverse_rotate(t_stack **stack_a, t_stack **stack_b, char operation);
 
-void	push(t_stack **dest, t_stack **src);
-int		pa(t_stack **a, t_stack **b);
-int		pb(t_stack **a, t_stack **b);
 
-//move_rotate.c
-
-void	rotate(t_stack *stack);
-int		rotate_a(t_stack *stack);
-int		rotate_b(t_stack *stack);
-int		rotate_rr(t_stack *a, t_stack *b);
-
-//move_reverse_rotate.c
-
-void	reverse_rotate(t_stack *stack);
-int		reverse_rotate_a(t_stack *stack);
-int		reverse_rotate_b(t_stack *stack);
-int		reverse_rotate_rrr(t_stack *a, t_stack *b);
-
-//psindex.c
-
-int		*psindex(int *numbers, int count);
-
-//disorder.c
-
-double	ft_disorder(int	*numbers, int count);
-
-//meter prototipo de las funciones.
+//Sorting algos + utils
+int		find_position(t_stack *stack, int value);
+int		ft_find_first_chunk_pos(t_stack *stack, int chunk_min, int chunk_max);
+void	sort_selection(t_stack **stack_a, t_stack **stack_b);
+void	ft_move_pos_to_top(t_stack **stack, int pos);
 
 
 #endif
