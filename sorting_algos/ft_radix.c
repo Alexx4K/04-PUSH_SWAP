@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_radix.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 19:15:00 by aarellan          #+#    #+#             */
-/*   Updated: 2026/07/24 18:16:53 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/27 12:20:20 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_radix_sort(t_stack **stack_a, t_stack **stack_b)
 
 	size = ft_lstsize(*stack_a);
 	max_bits = 0;
-	while (((size - 1) >> max_bits) != 0)
+	while ((size >> max_bits) != 0)
 		max_bits++;
 	i = 0;
 	while (i < max_bits)

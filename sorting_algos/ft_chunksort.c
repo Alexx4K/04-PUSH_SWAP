@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 10:42:01 by cesar             #+#    #+#             */
-/*   Updated: 2026/07/24 19:48:57 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/27 12:31:18 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	ft_move_chunk_elems(t_stack **stack_a, t_stack **stack_b, int chunk_size,
 		first_index = (act_chunk * chunk_size) + 1;
 		last_index = first_index + chunk_size - 1;
 		pos = ft_find_first_chunk_pos(*stack_a, first_index, last_index);
+		if (pos == -1)
+			break;
 		ft_move_pos_to_top(stack_a, pos);
 		if ((*stack_a)->content < first_index + (chunk_size / 2))
 		{
@@ -85,7 +87,11 @@ void	ft_chunksort(t_stack **stack_a, t_stack **stack_b, int n_elems)
 
 	chunk_size = ft_nearest_perfect_sqrt(n_elems);
 	act_chunk = 0;
-	ft_move_chunk_elems(stack_a, stack_b, chunk_size, act_chunk);
+	while (!ft_is_empty(*stack_a))
+	{
+		ft_move_chunk_elems(stack_a, stack_b, chunk_size, act_chunk);
+		act_chunk++;
+	}
 	ft_push_sorted_to_a(stack_a, stack_b, n_elems);
 }
 
