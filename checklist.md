@@ -3,12 +3,12 @@
 3. ~~Radix.~~
 	- ~~Testear~~
 4. ~~Linkear funciones, -h y estas polladas.~~
-	1. Testear.
+2. Si queremos usar el printf -> añadir a la libft
+	- Añadir archivos a la carpeta de libft.
+	- Añadir nombres de archivo al Makefile.
+3. Funciones para indexar y construir la lista dados los valores
 4. Falta imprimir las operaciones como output.
 5. Ordenación para 2, 3 y 5 elementos.
 6. TESTEAR Y ARREGLAR PARSEO y meterle utils y más parseo.
 7. Montar bench y bench_utils.
 8. Makefile.
-9. Si queremos usar el printf -> añadir a la libft
-	- Añadir archivos a la carpeta de libft.
-	- Añadir nombres de archivo al Makefile.
