@@ -2,6 +2,17 @@
 #include "sorting_algos/sorting_algos.h"
 #include <stdio.h>
 
+/*
+
+cc -Wall -Wextra -Werror -I. -Isorting_algos \
+tests/test_indexed_sort.c linked_lists.c \
+stack/ft_push.c stack/ft_rotate.c stack/ft_swap.c \
+sorting_algos/selection_sort.c sorting_algos/ft_chunksort.c \
+sorting_algos/ft_radix.c sorting_algos/sorting_utils.c \
+-o test_indexed_sort && ./test_indexed_sort
+
+ */
+
 static void	free_stack(t_stack *stack)
 {
 	t_stack	*next;
@@ -152,36 +163,49 @@ static int	has_valid_prev_links(t_stack *stack)
 	return (1);
 }
 
-int	main(void)
+static int	test_algorithm(const char *name,
+		void (*sort)(t_stack **, t_stack **), const int *values, int size)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	int		values[] = {42, -7, 1000, 3, -25, 81, 0};
-	int		size;
 	int		ok;
 
 	stack_a = NULL;
 	stack_b = NULL;
-	size = sizeof(values) / sizeof(values[0]);
-	printf("Original values: ");
-	print_values(values, size);
-	printf("\nIndex correspondence (smallest value has index 1):\n");
+	printf("\n=== %s ===\n", name);
+	printf("Index correspondence (smallest value has index 1):\n");
 	if (!init_indexed_stack(&stack_a, values, size))
 	{
 		fprintf(stderr, "Error: duplicate value or allocation failure\n");
-		return (1);
+		return (0);
 	}
 	printf("\nInitial indexed state:\n");
 	print_stack("A", stack_a);
 	print_stack("B", stack_b);
-	ft_radix_sort(&stack_a, &stack_b);
-	printf("\nFinal state after radix sort:\n");
+	sort(&stack_a, &stack_b);
+	printf("\nFinal state:\n");
 	print_stack("A", stack_a);
 	print_stack("B", stack_b);
 	ok = is_sorted(stack_a) && stack_b == NULL
 		&& ft_lstsize(stack_a) == size && has_valid_prev_links(stack_a);
-	printf("\nResult: %s\n", ok ? "OK" : "KO");
+	printf("Result: %s\n", ok ? "OK" : "KO");
 	free_stack(stack_a);
 	free_stack(stack_b);
+	return (ok);
+}
+
+int	main(void)
+{
+	int		values[] = {42, -7, 1000, 3, -25, 81, 0};
+	int		size;
+	int		ok;
+
+	size = sizeof(values) / sizeof(values[0]);
+	printf("Original values: ");
+	print_values(values, size);
+	ok = test_algorithm("Selection sort", sort_selection, values, size);
+	ok &= test_algorithm("Chunk sort", ft_prechunksort, values, size);
+	ok &= test_algorithm("Radix sort", ft_radix_sort, values, size);
+	printf("\nOverall result: %s\n", ok ? "OK" : "KO");
 	return (!ok);
 }
