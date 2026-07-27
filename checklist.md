@@ -4,6 +4,7 @@
 	- ~~Testear~~
 4. ~~Linkear funciones, -h y estas polladas.~~
 	1. Testear.
+4. Falta imprimir las operaciones como output.
 5. Ordenación para 2, 3 y 5 elementos.
 6. TESTEAR Y ARREGLAR PARSEO y meterle utils y más parseo.
 7. Montar bench y bench_utils.

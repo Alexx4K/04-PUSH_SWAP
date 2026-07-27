@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 11:27:45 by plopez-l          #+#    #+#             */
-/*   Updated: 2026/07/27 17:26:33 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/27 17:33:38 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,5 @@ void	ft_radix_sort(t_stack **stack_a, t_stack **stack_b);
 float	ft_compute_disorder(t_stack *stack);
 void	ft_exec_strategy_dispatch(t_stack **stack_a, t_stack **stack_b,
 			int forced_strat, float disorder);
-
 
 #endif

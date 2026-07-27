@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_adaptive.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 19:16:00 by aarellan          #+#    #+#             */
-/*   Updated: 2026/07/24 18:16:40 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/27 17:56:13 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
-#include "sorting_algos.h"
+#include "push_swap.h"
 
 float	ft_compute_disorder(t_stack *stack)
 {

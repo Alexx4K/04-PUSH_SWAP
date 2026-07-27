@@ -6,12 +6,12 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 13:02:49 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/24 19:50:56 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/27 17:55:38 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
-#include "sorting_algos.h"
+#include "push_swap.h"
 
 /// @brief Finds the position of a given value in the stack.
 /// @param stack the stack to search for the value.

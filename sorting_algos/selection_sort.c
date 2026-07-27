@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 13:03:22 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/24 18:19:31 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/27 17:55:54 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
-#include "sorting_algos.h"
+#include "push_swap.h"
 
 /// @brief finds the minimum value in the given stack.
 /// @param stack the stack to search for the minimum value.

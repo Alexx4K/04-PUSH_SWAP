@@ -6,12 +6,12 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 10:42:01 by cesar             #+#    #+#             */
-/*   Updated: 2026/07/27 12:31:18 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/27 17:54:23 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_lists.h"
-#include "sorting_algos.h"
+#include "push_swap.h"
 
 /// @brief Calculates the nearest perfect square root.
 /// @param n
