@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 10:42:01 by cesar             #+#    #+#             */
-/*   Updated: 2026/07/27 17:54:23 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 11:54:20 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ void	ft_move_chunk_elems(t_stack **stack_a, t_stack **stack_b, int chunk_size,
 		pos = ft_find_first_chunk_pos(*stack_a, first_index, last_index);
 		if (pos == -1)
 			break;
-		ft_move_pos_to_top(stack_a, pos);
+		ft_move_pos_to_top(stack_a, stack_b, pos, 'a');
 		if ((*stack_a)->content < first_index + (chunk_size / 2))
 		{
 			ft_push(stack_a, stack_b, 'b');
-			ft_list_rotate(stack_b);
+			ft_rotate(stack_a, stack_b, 'b');
 		}
 		else
 			ft_push(stack_a, stack_b, 'b');
@@ -69,7 +69,7 @@ void	ft_push_sorted_to_a(t_stack **stack_a, t_stack **stack_b, int max_index)
 	while (max_index > 0)
 	{
 		pos = find_position(*stack_b, max_index);
-		ft_move_pos_to_top(stack_b, pos);
+		ft_move_pos_to_top(stack_a, stack_b, pos, 'b');
 		ft_push(stack_a, stack_b, 'a');
 		max_index--;
 	}

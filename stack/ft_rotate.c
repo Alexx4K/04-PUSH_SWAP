@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 15:31:30 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/24 18:22:14 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/28 13:52:08 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,20 @@ void	ft_list_reverse_rotate(t_stack **stack)
 void	ft_rotate(t_stack **stack_a, t_stack **stack_b, char operation)
 {
 	if (operation == 'a')
+	{
 		ft_list_rotate(stack_a);
+		write(1, "ra\n", 3);
+	}
 	else if (operation == 'b')
+	{
 		ft_list_rotate(stack_b);
+		write(1, "rb\n", 3);
+	}
 	else if (operation == 'r')
 	{
 		ft_list_rotate(stack_a);
 		ft_list_rotate(stack_b);
+		write(1, "rr\n", 3);
 	}
 }
 
@@ -72,12 +79,19 @@ void	ft_rotate(t_stack **stack_a, t_stack **stack_b, char operation)
 void	ft_reverse_rotate(t_stack **stack_a, t_stack **stack_b, char operation)
 {
 	if (operation == 'a')
+	{
 		ft_list_reverse_rotate(stack_a);
+		write(1, "rra\n", 4);
+	}
 	else if (operation == 'b')
+	{
 		ft_list_reverse_rotate(stack_b);
+		write(1, "rrb\n", 4);
+	}
 	else if (operation == 'r')
 	{
 		ft_list_reverse_rotate(stack_a);
 		ft_list_reverse_rotate(stack_b);
+		write(1, "rrr\n", 4);
 	}
 }

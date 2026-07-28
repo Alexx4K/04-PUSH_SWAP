@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cesar <cesar@student.42.fr>                +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 12:31:57 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/24 18:23:12 by cesar            ###   ########.fr       */
+/*   Updated: 2026/07/28 13:51:48 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,18 @@ static void	ft_ss(t_stack **stack_a, t_stack **stack_b)
 void	ft_swap(t_stack **stack_a, t_stack **stack_b, char operation)
 {
 	if (operation == 'a')
+	{
 		ft_list_swap(stack_a);
+		write(1, "sa\n", 3);
+	}
 	else if (operation == 'b')
+	{
 		ft_list_swap(stack_b);
+		write(1, "sb\n", 3);
+	}
 	else if (operation == 's')
+	{
 		ft_ss(stack_a, stack_b);
+		write(1, "ss\n", 3);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 11:27:45 by plopez-l          #+#    #+#             */
-/*   Updated: 2026/07/27 17:33:38 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 13:59:17 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	ft_reverse_rotate(t_stack **stack_a, t_stack **stack_b, char operation);
 int		find_position(t_stack *stack, int value);
 int		ft_find_first_chunk_pos(t_stack *stack, int chunk_min, int chunk_max);
 void	sort_selection(t_stack **stack_a, t_stack **stack_b);
-void	ft_move_pos_to_top(t_stack **stack, int pos);
+void	ft_move_pos_to_top(t_stack **st_a, t_stack **st_b, int pos, char op);
 void	ft_prechunksort(t_stack **stack_a, t_stack **stack_b);
 void	ft_radix_sort(t_stack **stack_a, t_stack **stack_b);
 float	ft_compute_disorder(t_stack *stack);

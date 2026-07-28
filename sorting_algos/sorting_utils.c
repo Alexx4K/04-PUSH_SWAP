@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 13:02:49 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/27 17:55:38 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 13:58:55 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,25 +54,31 @@ int	ft_find_first_chunk_pos(t_stack *stack, int chunk_min, int chunk_max)
 
 // Suponte que quiero hacer una funcion que, dada la posicion en la que está
 // un elemento, lo suba hasta la cima del stack.
-void	ft_move_pos_to_top(t_stack **stack, int pos)
+// @todo MODIFICAR TODOS LOS LIST ROTATE
+void	ft_move_pos_to_top(t_stack **st_a, t_stack **st_b, int pos, char op)
 {
 	int	moves_remaining;
+	t_stack	**selected;
 
-	if (pos <= ft_lstsize(*stack) / 2)
+	if (op == 'a')
+		selected = st_a;
+	else
+		selected = st_b;
+	if (pos <= ft_lstsize(*selected) / 2)
 	{
 		moves_remaining = pos;
 		while (moves_remaining > 0)
 		{
-			ft_list_rotate(stack);
+			ft_list_rotate(selected);
 			moves_remaining--;
 		}
 	}
 	else
 	{
-		moves_remaining = ft_lstsize(*stack) - pos;
+		moves_remaining = ft_lstsize(*selected) - pos;
 		while (moves_remaining > 0)
 		{
-			ft_list_reverse_rotate(stack);
+			ft_list_reverse_rotate(selected);
 			moves_remaining--;
 		}
 	}

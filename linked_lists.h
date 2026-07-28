@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 11:54:40 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/24 19:45:20 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 13:51:21 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LINKED_LISTS_H
 
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {

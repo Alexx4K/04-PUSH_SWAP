@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 13:03:22 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/27 17:55:54 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 11:52:22 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	sort_selection(t_stack **stack_a, t_stack **stack_b)
 	{
 		value = find_min_value(*stack_a);
 		pos = find_position(*stack_a, value);
-		ft_move_pos_to_top(stack_a, pos);
+		ft_move_pos_to_top(stack_a, stack_b, pos, 'a');
 		ft_push(stack_a, stack_b, 'b');
 	}
 	while (!ft_is_empty(*stack_b))
