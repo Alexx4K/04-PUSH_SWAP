@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 14:22:16 by plopez-l          #+#    #+#             */
-/*   Updated: 2026/07/24 19:36:40 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 15:02:44 by aarellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static int	is_valid_number(const char *str)
 	return (1);
 }
 
+//@todo: is this function strcmp?
 int	str_equals(const char *a, const char *b)
 {
 	int	i;
@@ -60,6 +61,11 @@ long	str_to_long(const char *str)
 	return (num * sign);
 }
 
+/// @brief Stores n from arguments if its valid
+/// @param str 
+/// @param numbers 
+/// @param count 
+/// @param nbr_strs This is used to free the memory in case of error
 void	store_number(char *str, int *numbers, int *count, char **nbr_strs)
 {
 	long	value;
@@ -79,6 +85,11 @@ void	store_number(char *str, int *numbers, int *count, char **nbr_strs)
 	(*count)++;
 }
 
+/// @brief Parses the arguments and stores the numbers and flags in their respective arrays
+/// @param nbr_strs 
+/// @param flag_count 
+/// @param numbers 
+/// @param count 
 void	parse_tokens(char **nbr_strs, int *flag_count, int *numbers, int *count)
 {
 	int	j;
