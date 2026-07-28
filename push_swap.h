@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 11:27:45 by plopez-l          #+#    #+#             */
-/*   Updated: 2026/07/28 13:59:17 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 15:10:21 by aarellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		is_valid_number(const char *str);
 int		str_equals(const char *a, const char *b);
 long	str_to_long(const char *str);
 void	store_number(char *str, int *numbers, int *count, char **nbr_strs);
-void	parse_tokens(char **nbr_strs, int *flag_count, int *numbers, int *count);
+void	token_parse(char **nbr_strs, int *flag_count, int *numbers, int *count);
 
 //utils.c
 

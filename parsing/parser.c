@@ -6,7 +6,7 @@
 /*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 14:22:16 by plopez-l          #+#    #+#             */
-/*   Updated: 2026/07/28 15:02:44 by aarellan         ###   ########.fr       */
+/*   Updated: 2026/07/28 15:11:06 by aarellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,12 @@ void	store_number(char *str, int *numbers, int *count, char **nbr_strs)
 	(*count)++;
 }
 
-/// @brief Parses the arguments and stores the numbers and flags in their respective arrays
+/// @brief Parses arguments and stores the numbers and flags in their arrays
 /// @param nbr_strs 
 /// @param flag_count 
 /// @param numbers 
 /// @param count 
-void	parse_tokens(char **nbr_strs, int *flag_count, int *numbers, int *count)
+void	token_parse(char **nbr_strs, int *flag_count, int *numbers, int *count)
 {
 	int	j;
 	int	type;
