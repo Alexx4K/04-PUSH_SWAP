@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 13:03:22 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/28 11:52:22 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 18:27:16 by aarellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_lists.h"
 #include "push_swap.h"
 
 /// @brief finds the minimum value in the given stack.

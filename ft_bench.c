@@ -6,13 +6,11 @@
 /*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 19:10:00 by aarellan          #+#    #+#             */
-/*   Updated: 2026/07/24 13:28:53 by aarellan         ###   ########.fr       */
+/*   Updated: 2026/07/28 18:35:07 by aarellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_lists.h"
-#include <unistd.h>
-#include <stdio.h>
+#include "push_swap.h"
 
 int	*ft_get_ops_count(void)
 {

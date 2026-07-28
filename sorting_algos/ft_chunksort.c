@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_chunksort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 10:42:01 by cesar             #+#    #+#             */
-/*   Updated: 2026/07/28 11:54:20 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 18:41:03 by aarellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_lists.h"
 #include "push_swap.h"
 
 /// @brief Calculates the nearest perfect square root.
@@ -34,7 +33,7 @@ static int	ft_nearest_perfect_sqrt(int n)
 /// @param stack_b
 /// @param chunk_size Size of the chunk.
 /// @param act_chunk Actual chunk.
-void	ft_move_chunk_elems(t_stack **stack_a, t_stack **stack_b, int chunk_size,
+void	move_chunk_elem(t_stack **stack_a, t_stack **stack_b, int chunk_size,
 	int act_chunk)
 {
 	int	pushed_elems;
@@ -89,7 +88,7 @@ void	ft_chunksort(t_stack **stack_a, t_stack **stack_b, int n_elems)
 	act_chunk = 0;
 	while (!ft_is_empty(*stack_a))
 	{
-		ft_move_chunk_elems(stack_a, stack_b, chunk_size, act_chunk);
+		move_chunk_elem(stack_a, stack_b, chunk_size, act_chunk);
 		act_chunk++;
 	}
 	ft_push_sorted_to_a(stack_a, stack_b, n_elems);

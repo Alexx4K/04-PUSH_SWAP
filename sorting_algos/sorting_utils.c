@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 13:02:49 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/28 13:58:55 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 18:28:38 by aarellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_lists.h"
 #include "push_swap.h"
 
 /// @brief Finds the position of a given value in the stack.

@@ -12,3 +12,14 @@
 6. TESTEAR Y ARREGLAR PARSEO y meterle utils y más parseo.
 7. Montar bench y bench_utils.
 8. Makefile.
+
+
+
+------------------------------
+
+- Recortar fuertemente la libft, solo lo que se necesita para el proyecto.
+
+- Unificar los .h push_swap.h
+
+- EL MAKEFILE INFERNAL
+

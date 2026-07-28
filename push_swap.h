@@ -6,7 +6,7 @@
 /*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 11:27:45 by plopez-l          #+#    #+#             */
-/*   Updated: 2026/07/28 15:10:21 by aarellan         ###   ########.fr       */
+/*   Updated: 2026/07/28 18:39:01 by aarellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,18 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdbool.h>
+# include <stddef.h>
+# include <stdint.h>
 # include "libft/libft.h"
 // @todo comprobar que librerías son necesarias.
+
+//lists from libft
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 //parser.c
 

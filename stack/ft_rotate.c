@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 15:31:30 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/28 13:52:08 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 18:20:29 by aarellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_lists.h"
+#include "push_swap.h"
 
 /// @brief Puts the top element in the bottom of the stack.
 /// @param stack

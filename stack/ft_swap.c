@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 12:31:57 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/28 13:51:48 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 18:20:36 by aarellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_lists.h"
+#include "push_swap.h"
 
 /// @brief Swaps the first two elements of the given stack.
 /// @param stack Pointer to the stack to operate on.

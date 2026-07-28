@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "parsing/push_swap.h"
-#include "libft/libft.h"
+#include "push_swap.h"
 
 static int	count_tokens(int argc, char **argv)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 15:22:13 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/28 13:52:18 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 18:20:21 by aarellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_lists.h"
+#include "push_swap.h"
 
 /// @brief Pushes the element in the top of the non-empty src list to
 /// the dest list.

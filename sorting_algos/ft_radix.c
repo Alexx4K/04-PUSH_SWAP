@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_radix.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 19:15:00 by aarellan          #+#    #+#             */
-/*   Updated: 2026/07/27 17:56:02 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 18:28:38 by aarellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_lists.h"
 #include "push_swap.h"
 
 void	ft_radix_sort(t_stack **stack_a, t_stack **stack_b)

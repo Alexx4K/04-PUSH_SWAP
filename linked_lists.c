@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   linked_lists.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 12:22:01 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/24 19:44:43 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/28 18:34:54 by aarellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_lists.h"
+#include "push_swap.h"
 
 /// @brief Creates a node of t_stack type.
 /// @param content The content in the node.
