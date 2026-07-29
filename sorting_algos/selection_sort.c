@@ -3,31 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 13:03:22 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/28 18:27:16 by aarellan         ###   ########.fr       */
+/*   Updated: 2026/07/29 12:15:24 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/// @brief finds the minimum value in the given stack.
-/// @param stack the stack to search for the minimum value.
-/// @return the minimum value found in the stack.
-static int	find_min_value(t_stack *stack)
-{
-	int	min;
-
-	min = stack->content;
-	while (stack->next != NULL)
-	{
-		if (min > stack->next->content)
-			min = stack->next->content;
-		stack = stack->next;
-	}
-	return (min);
-}
 
 /// @brief Sorts the elements in stack_a using the selection sort algorithm and
 /// moves them to stack_b, then moves them back to stack_a in sorted order.

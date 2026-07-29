@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 13:02:49 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/28 18:28:38 by aarellan         ###   ########.fr       */
+/*   Updated: 2026/07/29 12:15:40 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,23 @@ int	find_position(t_stack *stack, int value)
 		pos++;
 	}
 	return (-1);
+}
+
+/// @brief finds the minimum value in the given stack.
+/// @param stack the stack to search for the minimum value.
+/// @return the minimum value found in the stack.
+int	find_min_value(t_stack *stack)
+{
+	int	min;
+
+	min = stack->content;
+	while (stack->next != NULL)
+	{
+		if (min > stack->next->content)
+			min = stack->next->content;
+		stack = stack->next;
+	}
+	return (min);
 }
 
 /// @brief Finds the position of an element from the interval.
