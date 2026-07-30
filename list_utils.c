@@ -6,11 +6,11 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 15:15:55 by aarellan          #+#    #+#             */
-/*   Updated: 2026/07/29 14:38:20 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/30 12:02:32 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_lists.h"
+#include "push_swap.h"
 
 /// @brief Creates a new node for the stack with the given value
 /// @param value The value to be stored in the new node
@@ -47,4 +47,3 @@ t_stack	*build_list(int *numbers, int count)
 	}
 	return (list);
 }
-
