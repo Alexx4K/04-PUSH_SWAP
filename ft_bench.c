@@ -12,6 +12,8 @@
 
 #include "push_swap.h"
 
+/// @todo meter printf y recortar la libft
+
 /// @brief Gets the operations count array.
 /// @return The operations count array.
 int	*ft_get_ops_count(void)
