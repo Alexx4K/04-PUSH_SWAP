@@ -12,6 +12,8 @@
 
 #include "push_swap.h"
 
+/// @brief Gets the operations count array.
+/// @return The operations count array.
 int	*ft_get_ops_count(void)
 {
 	static int	ops_count[12] = {0};
@@ -19,6 +21,8 @@ int	*ft_get_ops_count(void)
 	return (ops_count);
 }
 
+/// @brief Gets the benchmark flag.
+/// @return The benchmark flag.
 int	*ft_get_bench_flag(void)
 {
 	static int	bench_flag = 0;
@@ -26,6 +30,9 @@ int	*ft_get_bench_flag(void)
 	return (&bench_flag);
 }
 
+/// @brief Prints the strategy used.
+/// @param state The state of the strategy.
+/// @param disorder The disorder of the stack.
 static void	ft_print_strategy(int state, float disorder)
 {
 	fprintf(stderr, "[bench] strategy: ");

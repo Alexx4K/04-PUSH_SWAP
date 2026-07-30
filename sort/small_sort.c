@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
+/// @brief Sorts 2 elements in stack A.
+/// @param stack_a The first stack.
+/// @param stack_b The second stack.
 void	sort_2_elems(t_stack **stack_a, t_stack **stack_b)
 {
 	if ((*stack_a)->content > (*stack_a)->next->content)
@@ -19,6 +22,9 @@ void	sort_2_elems(t_stack **stack_a, t_stack **stack_b)
 
 }
 
+/// @brief Sorts 3 elements in stack A.
+/// @param stack_a The first stack.
+/// @param stack_b The second stack.
 void	sort_3_elems(t_stack **stack_a, t_stack **stack_b)
 {
 	int	first;
@@ -46,6 +52,9 @@ void	sort_3_elems(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
+/// @brief Sorts 4 elements in stack A.
+/// @param stack_a The first stack.
+/// @param stack_b The second stack.
 void	sort_4_elems(t_stack **stack_a, t_stack **stack_b)
 {
 	int	min_value_pos;
@@ -57,6 +66,9 @@ void	sort_4_elems(t_stack **stack_a, t_stack **stack_b)
 	ft_push(stack_a, stack_b, 'a');
 }
 
+/// @brief Sorts 5 elements in stack A.
+/// @param stack_a The first stack.
+/// @param stack_b The second stack.
 void	sort_5_elems(t_stack **stack_a, t_stack **stack_b)
 {
 	int	min_value_pos;

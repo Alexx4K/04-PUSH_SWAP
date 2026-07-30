@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
+/// @brief Computes the disorder of the stack.
+/// @param stack The stack to compute the disorder of.
+/// @return The disorder of the stack.
 float	ft_compute_disorder(t_stack *stack)
 {
 	t_stack	*i;
@@ -39,6 +42,11 @@ float	ft_compute_disorder(t_stack *stack)
 	return ((float)mistakes / total_pairs);
 }
 
+/// @brief Executes the strategy dispatch.
+/// @param stack_a The first stack.
+/// @param stack_b The second stack.
+/// @param forced_strat The forced strategy.
+/// @param disorder The disorder of the stack.
 void	ft_exec_strategy_dispatch(t_stack **stack_a, t_stack **stack_b,
 			int forced_strat, float disorder)
 {

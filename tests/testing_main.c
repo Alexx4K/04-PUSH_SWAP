@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_lists.h"
-#include <stdio.h>
+#include "push_swap.h"
 
 static int	node_value(t_stack *node)
 {

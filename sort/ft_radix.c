@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
+/// @brief Sorts the stack using the radix sort algorithm.
+/// @param stack_a The first stack.
+/// @param stack_b The second stack.
 void	ft_radix_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	int	size;

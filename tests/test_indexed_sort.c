@@ -1,5 +1,4 @@
-#include "linked_lists.h"
-#include "sorting_algos/sorting_algos.h"
+#include "push_swap.h"
 #include <stdio.h>
 
 /*

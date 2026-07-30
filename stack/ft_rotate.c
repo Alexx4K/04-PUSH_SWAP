@@ -12,8 +12,8 @@
 
 #include "push_swap.h"
 
-/// @brief Puts the top element in the bottom of the stack.
-/// @param stack
+/// @brief Rotates the stack to the top.
+/// @param stack The stack to rotate.
 void	ft_list_rotate(t_stack **stack)
 {
 	t_stack	*first;
@@ -30,8 +30,8 @@ void	ft_list_rotate(t_stack **stack)
 	last->next = first;
 }
 
-/// @brief Puts the bottom element in the top of the stack.
-/// @param stack
+/// @brief Rotates the stack to the bottom.
+/// @param stack The stack to rotate.
 void	ft_list_reverse_rotate(t_stack **stack)
 {
 	t_stack	*last;

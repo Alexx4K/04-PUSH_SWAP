@@ -5,16 +5,27 @@ CFLAGS = -Wall -Wextra -Werror
 
 HEADERS = push_swap.h
 
-SRC = ft_swap.c \
-	ft_push.c \
-	ft_rotate.c \
+SRC = parsing/flags_comparing.c\
+	parsing/flags.c\
+	parsing/parser.c\
+	parsing/utils.c\
+	sort/ft_adaptive.c\
+	sort/ft_chunksort.c\
+	sort/ft_radix.c\
+	sort/selection_sort.c\
+	sort/small_sort.c\
+	sort/sorting_utils.c\
+	stack/ft_push.c\
+	stack/ft_rotate.c\
+	stack/ft_swap.c\
+	tests/test_indexed_sort.c\
+	tests/testing_main.c\
+	tests/testSortSel.c\
+	ft_bench.c\
 	linked_lists.c\
+	list_utils.c\
 	main.c\
 	push_swap.c\
-	ft_bench.c\
-	list_utils.c\
-	
-	
 
 OBJ = $(SRC:.c=.o)
 

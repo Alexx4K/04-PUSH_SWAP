@@ -61,6 +61,10 @@ void	move_chunk_elem(t_stack **stack_a, t_stack **stack_b, int chunk_size,
 	}
 }
 
+/// @brief Pushes the sorted elements from stack B to stack A.
+/// @param stack_a
+/// @param stack_b
+/// @param max_index Maximum index to push.
 void	ft_push_sorted_to_a(t_stack **stack_a, t_stack **stack_b, int max_index)
 {
 	int	pos;

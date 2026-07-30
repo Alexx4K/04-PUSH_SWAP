@@ -1,6 +1,4 @@
-#include "linked_lists.h"
 #include "push_swap.h"
-#include <stdio.h>
 
 static void	print_stack(char *name, t_stack *stack)
 {

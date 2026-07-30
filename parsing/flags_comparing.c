@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
+/// @brief Checks if the flag is set.
+/// @param flag_count Array of flag counts.
+/// @return 1 if the flag is set, 0 otherwise.
 int	is_simple(int *flag_count)
 {
 	return (flag_count[0] > 0);

@@ -12,12 +12,15 @@
 
 #include "push_swap.h"
 
+/// @brief Exits the program with an error message.
 void	error_exit(void)
 {
 	write(2, "Error\n", 6);
 	exit(1);
 }
 
+/// @brief Frees the split array.
+/// @param arr The array to free.
 void	free_split(char **arr)
 {
 	int	j;
@@ -28,6 +31,9 @@ void	free_split(char **arr)
 	free(arr);
 }
 
+/// @brief Frees all the memory allocated for the program.
+/// @param nbr_strs The array of number strings.
+/// @param numbers The array of numbers.
 void	free_all(char **nbr_strs, int *numbers)
 {
 	if (nbr_strs)
@@ -36,6 +42,10 @@ void	free_all(char **nbr_strs, int *numbers)
 		free(numbers);
 }
 
+/// @brief Checks if there are duplicates in the array.
+/// @param numbers The array to check.
+/// @param count The number of elements in the array.
+/// @return 1 if there are duplicates, 0 otherwise.
 int	has_duplicates(int *numbers, int count)
 {
 	int	i;
@@ -56,6 +66,10 @@ int	has_duplicates(int *numbers, int count)
 	return (0);
 }
 
+/// @brief Computes the maximum size of the array.
+/// @param argc The number of arguments.
+/// @param argv The array of arguments.
+/// @return The maximum size of the array.
 int	compute_max_size(int argc, char **argv)
 {
 	int	i;

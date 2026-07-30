@@ -12,11 +12,9 @@
 
 #include "push_swap.h"
 
-
-/// @brief
-/// @param str
-/// @return
-/// @todo Is it necessary?
+/// @brief Checks if the string is a valid number.
+/// @param str The string to check.
+/// @return 1 if the string is a valid number, 0 otherwise.
 static int	is_valid_number(const char *str)
 {
 	int	i;
@@ -35,7 +33,10 @@ static int	is_valid_number(const char *str)
 	return (1);
 }
 
-//@todo: is this function strcmp?
+/// @brief Checks if the strings are equal.
+/// @param a The first string.
+/// @param b The second string.
+/// @return 1 if the strings are equal, 0 otherwise.
 int	str_equals(const char *a, const char *b)
 {
 	int	i;
@@ -46,6 +47,9 @@ int	str_equals(const char *a, const char *b)
 	return (a[i] - b[i]);
 }
 
+/// @brief Converts a string to a long.
+/// @param str The string to convert.
+/// @return The long value.
 long	str_to_long(const char *str)
 {
 	long	num;

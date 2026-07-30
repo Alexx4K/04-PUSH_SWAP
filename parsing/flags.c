@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
+/// @brief Gets the type of the flag.
+/// @param str The flag to get the type of.
+/// @return The type of the flag.
 int	get_flag_type(const char *str)
 {
 	if (str_equals(str, "--simple") == 0)
@@ -27,6 +30,9 @@ int	get_flag_type(const char *str)
 	return (-1);
 }
 
+/// @brief Checks if there is a conflict between flags.
+/// @param counts Array of flag counts.
+/// @return 1 if there is a conflict, 0 otherwise.
 int	has_conflict(int *counts)
 {
 	int	total;
@@ -43,6 +49,8 @@ int	has_conflict(int *counts)
 	return (total > 1);
 }
 
+/// @brief Initializes the flag counts.
+/// @param flag_count Array of flag counts.
 void	ft_init_flags(int *flag_count)
 {
 	int	i;

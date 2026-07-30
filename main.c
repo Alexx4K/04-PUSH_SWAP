@@ -12,6 +12,10 @@
 
 #include "push_swap.h"
 
+/// @brief Counts the number of tokens in the arguments.
+/// @param argc The number of arguments.
+/// @param argv The arguments.
+/// @return The number of tokens.
 static int	count_tokens(int argc, char **argv)
 {
 	int		i;
@@ -39,6 +43,7 @@ static int	count_tokens(int argc, char **argv)
 	return (count);
 }
 
+/// @todo Menos variables y 25 lineas maximo
 int	main(int argc, char **argv)
 {
 	int	total;
