@@ -6,36 +6,11 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 13:59:09 by aarellan          #+#    #+#             */
-/*   Updated: 2026/07/30 13:24:36 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/30 14:30:57 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	is_simple(int *flag_count)
-{
-	return (flag_count[0] > 0);
-}
-
-int	is_medium(int *flag_count)
-{
-	return (flag_count[1] > 0);
-}
-
-int	is_complex(int *flag_count)
-{
-	return (flag_count[2] > 0);
-}
-
-int	is_adaptive(int *flag_count)
-{
-	return (flag_count[3] > 0);
-}
-
-int	is_bench(int *flag_count)
-{
-	return (flag_count[4] > 0);
-}
 
 int	get_flag_type(const char *str)
 {

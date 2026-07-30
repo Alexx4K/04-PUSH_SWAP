@@ -1,0 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   flags_comparing.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/30 14:30:33 by crubio-p          #+#    #+#             */
+/*   Updated: 2026/07/30 14:30:47 by crubio-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+int	is_simple(int *flag_count)
+{
+	return (flag_count[0] > 0);
+}
+
+int	is_medium(int *flag_count)
+{
+	return (flag_count[1] > 0);
+}
+
+int	is_complex(int *flag_count)
+{
+	return (flag_count[2] > 0);
+}
+
+int	is_adaptive(int *flag_count)
+{
+	return (flag_count[3] > 0);
+}
+
+int	is_bench(int *flag_count)
+{
+	return (flag_count[4] > 0);
+}

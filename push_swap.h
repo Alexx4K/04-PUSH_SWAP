@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 11:27:45 by plopez-l          #+#    #+#             */
-/*   Updated: 2026/07/29 14:47:56 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/30 14:31:27 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		is_valid_number(const char *str);
 int		str_equals(const char *a, const char *b);
 long	str_to_long(const char *str);
 void	store_number(char *str, int *numbers, int *count, char **nbr_strs);
-void	token_parse(char **nbr_strs, int *flag_count, int *numbers, int *count);
+void	token_parse(char **nbr_strs, int *flag_count, int *numbers);
 
 //utils.c
 
@@ -48,14 +48,18 @@ int		compute_max_size(int argc, char **argv);
 
 //flags.c
 
+int		get_flag_type(const char *str);
+int		has_conflict(int *counts);
+void	ft_init_flags(int *flag_count);
+
+//flags_comparing.c
+
+
 int		is_simple(int *flag_count);
 int		is_medium(int *flag_count);
 int		is_complex(int *flag_count);
 int		is_adaptive(int *flag_count);
 int		is_bench(int *flag_count);
-int		get_flag_type(const char *str);
-int		has_conflict(int *counts);
-void	ft_init_flags(int *flag_count);
 
 //list_utils.c
 
