@@ -16,6 +16,7 @@
 
 
 ------------------------------
+- MIRAR TEMA DE PRECOMPILAR LA LIBFT.
 
 - Recortar fuertemente la libft, solo lo que se necesita para el proyecto.
 
