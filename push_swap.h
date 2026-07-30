@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 11:27:45 by plopez-l          #+#    #+#             */
-/*   Updated: 2026/07/29 12:15:55 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/29 14:47:56 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <limits.h>
 # include <stdbool.h>
 # include <stddef.h>
@@ -52,6 +53,7 @@ int		has_conflict(int *counts);
 void	ft_init_flags(int *flag_count);
 
 //list_utils.c
+
 
 t_stack	*new_node(int value);
 t_stack	*build_list(int *numbers, int count);

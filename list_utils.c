@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 15:15:55 by aarellan          #+#    #+#             */
-/*   Updated: 2026/07/28 15:55:23 by aarellan         ###   ########.fr       */
+/*   Updated: 2026/07/29 14:38:20 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_stack	*new_node(int value)
 }
 
 /// @brief Builds a doubly linked list (stack) from an array of integers
+/// @todo index each number of the stack
 t_stack	*build_list(int *numbers, int count)
 {
 	t_stack	*list;
