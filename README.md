@@ -133,7 +133,7 @@ La gracia está en que la cantidad de rotaciones va a ser bastante menor, en pro
    - Adaptación del orden por montículos
    - Algoritmos de árbol binario indexado<>
 
-   
+
 
 
 ## Idea Estructura de archivos
@@ -168,3 +168,10 @@ src/
     sort_radix.c
     sort_small.c
 ```
+
+
+## NOTAS
+
+- El formato de entrada son: flags -> números
+  - No puede haber flags entre medias o después de los números.
+
