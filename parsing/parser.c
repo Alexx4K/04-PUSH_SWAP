@@ -6,12 +6,17 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 14:22:16 by aarellan          #+#    #+#             */
-/*   Updated: 2026/07/30 13:24:58 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/07/30 14:10:31 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+
+/// @brief
+/// @param str
+/// @return
+/// @todo Is it necessary?
 static int	is_valid_number(const char *str)
 {
 	int	i;
@@ -62,10 +67,11 @@ long	str_to_long(const char *str)
 }
 
 /// @brief Stores n from arguments if its valid
-/// @param str
+/// @param str argument to convert in number
 /// @param numbers
 /// @param count
 /// @param nbr_strs This is used to free the memory in case of error
+/// @todo Why we cast the number to int. Are we working only with int??
 void	store_number(char *str, int *numbers, int *count, char **nbr_strs)
 {
 	long	value;
@@ -86,16 +92,20 @@ void	store_number(char *str, int *numbers, int *count, char **nbr_strs)
 }
 
 /// @brief Parses arguments and stores the numbers and flags in their arrays
-/// @param nbr_strs
-/// @param flag_count
-/// @param numbers
-/// @param count
-void	token_parse(char **nbr_strs, int *flag_count, int *numbers, int *count)
+/// @param nbr_strs Arguments passed by the user (everything except the program name).
+/// @param flag_count list of flags (0 if not appeared, 1 if present, controls duplicate).
+/// @param numbers array of numbers after atol.
+/// @todo divide in two steps, first flags. When no more flags start processing
+/// numbers.
+/// 
+void	token_parse(char **nbr_strs, int *flag_count, int *numbers)
 {
 	int	j;
 	int	type;
+	int	*count;
 
 	j = 0;
+	*count = 0;
 	while (nbr_strs[j] != NULL)
 	{
 		type = get_flag_type(nbr_strs[j]);
