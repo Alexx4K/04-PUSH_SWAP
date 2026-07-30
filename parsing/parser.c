@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 14:22:16 by aarellan          #+#    #+#             */
-/*   Updated: 2026/07/28 18:33:46 by aarellan         ###   ########.fr       */
+/*   Updated: 2026/07/30 13:24:58 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ long	str_to_long(const char *str)
 }
 
 /// @brief Stores n from arguments if its valid
-/// @param str 
-/// @param numbers 
-/// @param count 
+/// @param str
+/// @param numbers
+/// @param count
 /// @param nbr_strs This is used to free the memory in case of error
 void	store_number(char *str, int *numbers, int *count, char **nbr_strs)
 {
@@ -86,10 +86,10 @@ void	store_number(char *str, int *numbers, int *count, char **nbr_strs)
 }
 
 /// @brief Parses arguments and stores the numbers and flags in their arrays
-/// @param nbr_strs 
-/// @param flag_count 
-/// @param numbers 
-/// @param count 
+/// @param nbr_strs
+/// @param flag_count
+/// @param numbers
+/// @param count
 void	token_parse(char **nbr_strs, int *flag_count, int *numbers, int *count)
 {
 	int	j;
@@ -99,8 +99,8 @@ void	token_parse(char **nbr_strs, int *flag_count, int *numbers, int *count)
 	while (nbr_strs[j] != NULL)
 	{
 		type = get_flag_type(nbr_strs[j]);
-		if (type != 0)
-			flag_count[type - 1]++;
+		if (type != -1)
+			flag_count[type]++;
 		else
 			store_number(nbr_strs[j], numbers, count, nbr_strs);
 		j++;

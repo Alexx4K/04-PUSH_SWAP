@@ -48,6 +48,11 @@ int		compute_max_size(int argc, char **argv);
 
 //flags.c
 
+int		is_simple(int *flag_count);
+int		is_medium(int *flag_count);
+int		is_complex(int *flag_count);
+int		is_adaptive(int *flag_count);
+int		is_bench(int *flag_count);
 int		get_flag_type(const char *str);
 int		has_conflict(int *counts);
 void	ft_init_flags(int *flag_count);
