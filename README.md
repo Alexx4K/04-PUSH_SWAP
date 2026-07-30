@@ -139,34 +139,40 @@ La gracia está en que la cantidad de rotaciones va a ser bastante menor, en pro
 ## Idea Estructura de archivos
 
 ```shell
-includes/
-  push_swap.h
 
-src/
-  main.c
-
-  parse/
-    parse_args.c
-    check_args.c
-
-  stack/
-    stack_new.c
-    stack_utils.c
-    stack_free.c
-    stack_index.c
-
-  ops/
-    swap.c
-    push.c
-    rotate.c
-    reverse_rotate.c
-
+  parsing/
+    flags.c
+    flags_comparing.c
+    parser.c
+    utils.c
+ 
   sort/
-    sort.c
-    sort_selection.c
-    sort_chunks.c
-    sort_radix.c
-    sort_small.c
+  ft_adaptative.c
+  ft_chunksort.c
+  ft_radix.c
+  selection_sort.c
+  small_sort.c
+  sorting_utils.c
+   
+  stack/
+  ft_push.c
+  ft_rotate.c
+  ft_swap.c
+
+  tests/
+  test_indexed_sort.c
+  testing_main.c
+  testSortSel.c
+
+  ft_bench.c
+  linked_lists.c
+  list_utils.c
+  main.c
+  Makefile
+  push_swap.c
+  push_swap.h
+  README.md
+
 ```
 
 

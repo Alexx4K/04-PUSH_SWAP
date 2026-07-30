@@ -1,14 +1,20 @@
-NAME = linked_lists.a
+NAME = push_swap.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-HEADERS = linked_lists.h
+HEADERS = push_swap.h
 
 SRC = ft_swap.c \
 	ft_push.c \
 	ft_rotate.c \
 	linked_lists.c\
+	main.c\
+	push_swap.c\
+	ft_bench.c\
+	list_utils.c\
+	
+	
 
 OBJ = $(SRC:.c=.o)
 
