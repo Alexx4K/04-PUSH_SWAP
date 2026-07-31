@@ -3,49 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/28 18:33:30 by aarellan          #+#    #+#             */
-/*   Updated: 2026/07/28 18:33:37 by aarellan         ###   ########.fr       */
+/*   Created: 2026/07/30 18:06:25 by crubio-p          #+#    #+#             */
+/*   Updated: 2026/07/30 18:06:25 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/// @brief Exits the program with an error message.
+/// @brief Prints "Error" to stderr and stops the program.
 void	error_exit(void)
 {
 	write(2, "Error\n", 6);
 	exit(1);
 }
 
-/// @brief Frees the split array.
+/// @brief Frees a NULL-terminated array of strings and the array itself.
 /// @param arr The array to free.
 void	free_split(char **arr)
 {
-	int	j;
+	int	i;
 
-	j = 0;
-	while (arr[j])
-		free(arr[j++]);
+	if (!arr)
+		return ;
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
 	free(arr);
 }
 
-/// @brief Frees all the memory allocated for the program.
-/// @param nbr_strs The array of number strings.
-/// @param numbers The array of numbers.
+/// @brief Frees the token array and the numbers array used during parsing.
+/// @param nbr_strs Token array to free.
+/// @param numbers Numbers array to free.
 void	free_all(char **nbr_strs, int *numbers)
 {
-	if (nbr_strs)
-		free_split(nbr_strs);
-	if (numbers)
-		free(numbers);
+	free_split(nbr_strs);
+	free(numbers);
 }
 
-/// @brief Checks if there are duplicates in the array.
-/// @param numbers The array to check.
-/// @param count The number of elements in the array.
-/// @return 1 if there are duplicates, 0 otherwise.
+/// @brief Checks whether the given array of numbers has duplicate values.
+/// @param numbers Array of integers.
+/// @param count Number of elements.
+/// @return 1 if a duplicate is found, 0 otherwise.
 int	has_duplicates(int *numbers, int count)
 {
 	int	i;
@@ -66,18 +66,31 @@ int	has_duplicates(int *numbers, int count)
 	return (0);
 }
 
-/// @brief Computes the maximum size of the array.
-/// @param argc The number of arguments.
-/// @param argv The array of arguments.
-/// @return The maximum size of the array.
+/// @brief Counts the total number of whitespace-separated tokens found
+/// across every argv argument.
+/// @param argc Number of program arguments.
+/// @param argv Program argument array.
+/// @return Total token count, or -1 on allocation failure.
 int	compute_max_size(int argc, char **argv)
 {
-	int	i;
-	int	max_size;
+	int		i;
+	int		j;
+	int		count;
+	char	**parts;
 
-	max_size = 0;
+	count = 0;
 	i = 1;
 	while (i < argc)
-		max_size += ft_strlen(argv[i++]);
-	return (max_size);
+	{
+		parts = ft_split(argv[i], ' ');
+		if (!parts)
+			return (-1);
+		j = 0;
+		while (parts[j])
+			j++;
+		count += j;
+		free_split(parts);
+		i++;
+	}
+	return (count);
 }

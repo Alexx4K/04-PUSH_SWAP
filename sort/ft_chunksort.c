@@ -48,7 +48,7 @@ void	move_chunk_elem(t_stack **stack_a, t_stack **stack_b, int chunk_size,
 		last_index = first_index + chunk_size - 1;
 		pos = ft_find_first_chunk_pos(*stack_a, first_index, last_index);
 		if (pos == -1)
-			break;
+			break ;
 		ft_move_pos_to_top(stack_a, stack_b, pos, 'a');
 		if ((*stack_a)->content < first_index + (chunk_size / 2))
 		{
@@ -106,6 +106,6 @@ void	ft_prechunksort(t_stack **stack_a, t_stack **stack_b)
 {
 	int	n_elems;
 
-	n_elems = ft_lstsize(*stack_a);
+	n_elems = ps_lstsize(*stack_a);
 	ft_chunksort(stack_a, stack_b, n_elems);
 }

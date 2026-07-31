@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/30 19:30:40 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/05/30 19:54:21 by crubio-p         ###   ########.fr       */
+/*   Created: 2026/07/30 18:11:18 by crubio-p          #+#    #+#             */
+/*   Updated: 2026/07/30 18:11:18 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strdup(const char *s)
 {
-	int		i;
 	char	*dup;
+	size_t	i;
 
 	dup = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!dup)

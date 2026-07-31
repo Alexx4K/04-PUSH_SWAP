@@ -51,16 +51,19 @@ void	ft_swap(t_stack **stack_a, t_stack **stack_b, char operation)
 	if (operation == 'a')
 	{
 		ft_list_swap(stack_a);
+		bench_count_op(OP_SA);
 		write(1, "sa\n", 3);
 	}
 	else if (operation == 'b')
 	{
 		ft_list_swap(stack_b);
+		bench_count_op(OP_SB);
 		write(1, "sb\n", 3);
 	}
 	else if (operation == 's')
 	{
 		ft_ss(stack_a, stack_b);
+		bench_count_op(OP_SS);
 		write(1, "ss\n", 3);
 	}
 }

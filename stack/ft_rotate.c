@@ -22,7 +22,7 @@ void	ft_list_rotate(t_stack **stack)
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	first = *stack;
-	last = ft_lstlast(*stack);
+	last = ps_lstlast(*stack);
 	*stack = first->next;
 	(*stack)->prev = NULL;
 	first->next = NULL;
@@ -38,7 +38,7 @@ void	ft_list_reverse_rotate(t_stack **stack)
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
-	last = ft_lstlast(*stack);
+	last = ps_lstlast(*stack);
 	last->prev->next = NULL;
 	last->prev = NULL;
 	last->next = *stack;
@@ -56,17 +56,20 @@ void	ft_rotate(t_stack **stack_a, t_stack **stack_b, char operation)
 	if (operation == 'a')
 	{
 		ft_list_rotate(stack_a);
+		bench_count_op(OP_RA);
 		write(1, "ra\n", 3);
 	}
 	else if (operation == 'b')
 	{
 		ft_list_rotate(stack_b);
+		bench_count_op(OP_RB);
 		write(1, "rb\n", 3);
 	}
 	else if (operation == 'r')
 	{
 		ft_list_rotate(stack_a);
 		ft_list_rotate(stack_b);
+		bench_count_op(OP_RR);
 		write(1, "rr\n", 3);
 	}
 }
@@ -81,17 +84,20 @@ void	ft_reverse_rotate(t_stack **stack_a, t_stack **stack_b, char operation)
 	if (operation == 'a')
 	{
 		ft_list_reverse_rotate(stack_a);
+		bench_count_op(OP_RRA);
 		write(1, "rra\n", 4);
 	}
 	else if (operation == 'b')
 	{
 		ft_list_reverse_rotate(stack_b);
+		bench_count_op(OP_RRB);
 		write(1, "rrb\n", 4);
 	}
 	else if (operation == 'r')
 	{
 		ft_list_reverse_rotate(stack_a);
 		ft_list_reverse_rotate(stack_b);
+		bench_count_op(OP_RRR);
 		write(1, "rrr\n", 4);
 	}
 }

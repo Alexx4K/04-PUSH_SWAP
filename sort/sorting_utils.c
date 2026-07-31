@@ -68,33 +68,37 @@ int	ft_find_first_chunk_pos(t_stack *stack, int chunk_min, int chunk_max)
 	return (-1);
 }
 
-// Suponte que quiero hacer una funcion que, dada la posicion en la que está
-// un elemento, lo suba hasta la cima del stack.
-// @todo MODIFICAR TODOS LOS LIST ROTATE
+/// @brief Rotates stack_a or stack_b (per op) so the element at pos ends up
+/// on top, using whichever direction (ra/rra) needs fewer moves. Uses the
+/// printing wrappers so every move is emitted as a Push_swap operation.
+/// @param st_a Stack A.
+/// @param st_b Stack B.
+/// @param pos Position (0-indexed from the top) of the element to bring up.
+/// @param op 'a' or 'b': which of the two stacks pos refers to.
 void	ft_move_pos_to_top(t_stack **st_a, t_stack **st_b, int pos, char op)
 {
 	int	moves_remaining;
-	t_stack	**selected;
+	int	size;
 
 	if (op == 'a')
-		selected = st_a;
+		size = ps_lstsize(*st_a);
 	else
-		selected = st_b;
-	if (pos <= ft_lstsize(*selected) / 2)
+		size = ps_lstsize(*st_b);
+	if (pos <= size / 2)
 	{
 		moves_remaining = pos;
 		while (moves_remaining > 0)
 		{
-			ft_list_rotate(selected);
+			ft_rotate(st_a, st_b, op);
 			moves_remaining--;
 		}
 	}
 	else
 	{
-		moves_remaining = ft_lstsize(*selected) - pos;
+		moves_remaining = size - pos;
 		while (moves_remaining > 0)
 		{
-			ft_list_reverse_rotate(selected);
+			ft_reverse_rotate(st_a, st_b, op);
 			moves_remaining--;
 		}
 	}

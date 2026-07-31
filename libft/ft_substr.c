@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/30 19:44:55 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/05/30 20:14:23 by crubio-p         ###   ########.fr       */
+/*   Created: 2026/07/30 18:11:18 by crubio-p          #+#    #+#             */
+/*   Updated: 2026/07/30 18:11:18 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*str;
+	char	*sub;
+	size_t	s_len;
 	size_t	i;
-	size_t	slen;
 
 	if (!s)
 		return (NULL);
-	slen = ft_strlen(s);
-	if (start >= slen)
-		return (ft_strdup(""));
-	if (len > slen - start)
-		len = slen - start;
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+		return (ft_calloc(1, sizeof(char)));
+	if (len > s_len - start)
+		len = s_len - start;
+	sub = malloc((len + 1) * sizeof(char));
+	if (!sub)
 		return (NULL);
 	i = 0;
-	while (i < len && s[start + i])
+	while (i < len)
 	{
-		str[i] = s[start + i];
+		sub[i] = s[start + i];
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	sub[i] = '\0';
+	return (sub);
 }

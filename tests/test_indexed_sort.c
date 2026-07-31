@@ -1,48 +1,23 @@
-#include "push_swap.h"
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_indexed_sort.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/04 00:00:00 by crubio-p          #+#    #+#             */
+/*   Updated: 2026/07/30 18:17:51 by crubio-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 /*
+** Not part of the mandatory delivery: dev-only sanity check for the three
+** base sorting algorithms, run through the Makefile's "tests" rule.
+*/
 
-cc -Wall -Wextra -Werror -I. -Isorting_algos \
-tests/test_indexed_sort.c linked_lists.c \
-stack/ft_push.c stack/ft_rotate.c stack/ft_swap.c \
-sorting_algos/selection_sort.c sorting_algos/ft_chunksort.c \
-sorting_algos/ft_radix.c sorting_algos/sorting_utils.c \
--o test_indexed_sort && ./test_indexed_sort
+#include "tests.h"
 
- */
-
-static void	free_stack(t_stack *stack)
-{
-	t_stack	*next;
-
-	while (stack)
-	{
-		next = stack->next;
-		free(stack);
-		stack = next;
-	}
-}
-
-static int	append_node(t_stack **stack, int content)
-{
-	t_stack	*new_node;
-	t_stack	*last;
-
-	new_node = ft_lstnew(content);
-	if (!new_node)
-		return (0);
-	if (!*stack)
-	{
-		*stack = new_node;
-		return (1);
-	}
-	last = ft_lstlast(*stack);
-	last->next = new_node;
-	new_node->prev = last;
-	return (1);
-}
-
+/// @brief Rank of values[position] (1 = smallest) among all values.
 static int	get_index(const int *values, int size, int position)
 {
 	int	index;
@@ -59,32 +34,13 @@ static int	get_index(const int *values, int size, int position)
 	return (index);
 }
 
-static int	has_duplicates(const int *values, int size)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < size)
-	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (values[i] == values[j])
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
+/// @brief Builds a stack of rank-indexes from an array of raw values.
 static int	init_indexed_stack(t_stack **stack, const int *values, int size)
 {
 	int	i;
 	int	index;
 
-	if (has_duplicates(values, size))
+	if (test_has_duplicates(values, size))
 		return (0);
 	i = 0;
 	while (i < size)
@@ -93,7 +49,7 @@ static int	init_indexed_stack(t_stack **stack, const int *values, int size)
 		printf("  value %d -> index %d\n", values[i], index);
 		if (!append_node(stack, index))
 		{
-			free_stack(*stack);
+			test_free_stack(*stack);
 			*stack = NULL;
 			return (0);
 		}
@@ -102,109 +58,66 @@ static int	init_indexed_stack(t_stack **stack, const int *values, int size)
 	return (1);
 }
 
-static void	print_values(const int *values, int size)
+/// @brief Validates the sorted result, reports OK/KO and frees the stacks.
+static int	report_result(t_stack *stack_a, t_stack *stack_b, int size)
 {
-	int	i;
+	int	ok;
 
-	i = 0;
-	printf("[");
-	while (i < size)
-	{
-		printf("%d", values[i]);
-		if (i + 1 < size)
-			printf(", ");
-		i++;
-	}
-	printf("]\n");
+	ok = is_sorted(stack_a) && stack_b == NULL
+		&& ps_lstsize(stack_a) == size && has_valid_prev_links(stack_a);
+	if (ok)
+		printf("Result: OK\n");
+	else
+		printf("Result: KO\n");
+	test_free_stack(stack_a);
+	test_free_stack(stack_b);
+	return (ok);
 }
 
-static void	print_stack(const char *name, t_stack *stack)
-{
-	printf("%s: top -> ", name);
-	if (!stack)
-	{
-		printf("NULL\n");
-		return ;
-	}
-	while (stack)
-	{
-		printf("%d", stack->content);
-		if (stack->next)
-			printf(" -> ");
-		stack = stack->next;
-	}
-	printf(" -> NULL\n");
-}
-
-static int	is_sorted(t_stack *stack)
-{
-	while (stack && stack->next)
-	{
-		if (stack->content >= stack->next->content)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
-
-static int	has_valid_prev_links(t_stack *stack)
-{
-	t_stack	*previous;
-
-	previous = NULL;
-	while (stack)
-	{
-		if (stack->prev != previous)
-			return (0);
-		previous = stack;
-		stack = stack->next;
-	}
-	return (1);
-}
-
+/// @brief Runs one sorting algorithm on the indexed values and reports OK/KO.
 static int	test_algorithm(const char *name,
 		void (*sort)(t_stack **, t_stack **), const int *values, int size)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	int		ok;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	printf("\n=== %s ===\n", name);
-	printf("Index correspondence (smallest value has index 1):\n");
 	if (!init_indexed_stack(&stack_a, values, size))
 	{
 		fprintf(stderr, "Error: duplicate value or allocation failure\n");
 		return (0);
 	}
-	printf("\nInitial indexed state:\n");
 	print_stack("A", stack_a);
 	print_stack("B", stack_b);
 	sort(&stack_a, &stack_b);
-	printf("\nFinal state:\n");
 	print_stack("A", stack_a);
 	print_stack("B", stack_b);
-	ok = is_sorted(stack_a) && stack_b == NULL
-		&& ft_lstsize(stack_a) == size && has_valid_prev_links(stack_a);
-	printf("Result: %s\n", ok ? "OK" : "KO");
-	free_stack(stack_a);
-	free_stack(stack_b);
-	return (ok);
+	return (report_result(stack_a, stack_b, size));
 }
 
 int	main(void)
 {
-	int		values[] = {42, -7, 1000, 3, -25, 81, 0};
-	int		size;
-	int		ok;
+	int	values[7];
+	int	size;
+	int	ok;
 
-	size = sizeof(values) / sizeof(values[0]);
-	printf("Original values: ");
+	values[0] = 42;
+	values[1] = -7;
+	values[2] = 1000;
+	values[3] = 3;
+	values[4] = -25;
+	values[5] = 81;
+	values[6] = 0;
+	size = 7;
 	print_values(values, size);
 	ok = test_algorithm("Selection sort", sort_selection, values, size);
-	ok &= test_algorithm("Chunk sort", ft_prechunksort, values, size);
-	ok &= test_algorithm("Radix sort", ft_radix_sort, values, size);
-	printf("\nOverall result: %s\n", ok ? "OK" : "KO");
+	ok = ok & test_algorithm("Chunk sort", ft_prechunksort, values, size);
+	ok = ok & test_algorithm("Radix sort", ft_radix_sort, values, size);
+	if (ok)
+		printf("\nOverall result: OK\n");
+	else
+		printf("\nOverall result: KO\n");
 	return (!ok);
 }

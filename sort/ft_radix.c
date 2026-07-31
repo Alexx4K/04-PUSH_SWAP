@@ -22,7 +22,7 @@ void	ft_radix_sort(t_stack **stack_a, t_stack **stack_b)
 	int	i;
 	int	j;
 
-	size = ft_lstsize(*stack_a);
+	size = ps_lstsize(*stack_a);
 	max_bits = 0;
 	while ((size >> max_bits) != 0)
 		max_bits++;

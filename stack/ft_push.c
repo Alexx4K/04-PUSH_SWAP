@@ -37,16 +37,18 @@ static void	ft_list_push(t_stack **src, t_stack **dest)
 /// @param stack_a Stack A
 /// @param stack_b Stack B
 /// @param operation Character indicating which stack(s) to operate on.
-void	ft_push(t_stack **stack_a, t_stack **stack_b, char operation, int fd)
+void	ft_push(t_stack **stack_a, t_stack **stack_b, char operation)
 {
 	if (operation == 'a')
 	{
 		ft_list_push(stack_b, stack_a);
+		bench_count_op(OP_PA);
 		write(1, "pa\n", 3);
 	}
 	if (operation == 'b')
 	{
 		ft_list_push(stack_a, stack_b);
+		bench_count_op(OP_PB);
 		write(1, "pb\n", 3);
 	}
 }

@@ -5,15 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/03 12:44:30 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/06/03 12:46:41 by crubio-p         ###   ########.fr       */
+/*   Created: 2026/07/30 18:11:18 by crubio-p          #+#    #+#             */
+/*   Updated: 2026/07/30 18:11:18 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	(del)(lst->content);
+	if (!lst || !del)
+		return ;
+	del(lst->content);
 	free(lst);
 }

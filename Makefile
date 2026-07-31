@@ -1,45 +1,67 @@
-NAME = push_swap.a
+# ************************************************************************** #
+#                                                                            #
+#                                                        :::      ::::::::   #
+#   Makefile                                           :+:      :+:    :+:  #
+#                                                    +:+ +:+         +:+     #
+#   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+       #
+#                                                +#+#+#+#+#+   +#+          #
+#   Created: 2026/07/30 18:06:25 by crubio-p          #+#    #+#            #
+#   Updated: 2026/07/30 18:06:25 by crubio-p         ###   ########.fr      #
+#                                                                            #
+# ************************************************************************** #
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+NAME		=	push_swap
 
-HEADERS = push_swap.h
+CC			=	cc
+CFLAGS		=	-Wall -Wextra -Werror
+RM			=	rm -f
 
-SRC = parsing/flags_comparing.c\
-	parsing/flags.c\
-	parsing/parser.c\
-	parsing/utils.c\
-	sort/ft_adaptive.c\
-	sort/ft_chunksort.c\
-	sort/ft_radix.c\
-	sort/selection_sort.c\
-	sort/small_sort.c\
-	sort/sorting_utils.c\
-	stack/ft_push.c\
-	stack/ft_rotate.c\
-	stack/ft_swap.c\
-	tests/test_indexed_sort.c\
-	tests/testing_main.c\
-	tests/testSortSel.c\
-	ft_bench.c\
-	linked_lists.c\
-	list_utils.c\
-	main.c\
-	push_swap.c\
+LIBFT_DIR	=	libft
+LIBFT		=	$(LIBFT_DIR)/libft.a
 
-OBJ = $(SRC:.c=.o)
+SRCS		=	main.c \
+				push_swap.c \
+				linked_lists.c \
+				list_utils.c \
+				ft_bench.c \
+				parsing/parser.c \
+				parsing/tokenizer.c \
+				parsing/utils.c \
+				parsing/flags.c \
+				parsing/flags_comparing.c \
+				sort/selection_sort.c \
+				sort/small_sort.c \
+				sort/ft_chunksort.c \
+				sort/ft_radix.c \
+				sort/ft_adaptive.c \
+				sort/sorting_utils.c \
+				stack/ft_push.c \
+				stack/ft_rotate.c \
+				stack/ft_swap.c
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+OBJS		=	$(SRCS:.c=.o)
 
-all: $(NAME)
+%.o:		%.c push_swap.h
+			$(CC) $(CFLAGS) -I. -c $< -o $@
+
+$(NAME):	$(LIBFT) $(OBJS)
+			$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+
+$(LIBFT):
+			$(MAKE) -C $(LIBFT_DIR)
+
+all:		$(NAME)
+
+bonus:		all
 
 clean:
-	@rm -f $(OBJ)
+			$(RM) $(OBJS)
+			$(MAKE) -C $(LIBFT_DIR) clean
 
-fclean: clean
-	@rm -f $(NAME)
+fclean:		clean
+			$(RM) $(NAME)
+			$(MAKE) -C $(LIBFT_DIR) fclean
 
-re: fclean all
+re:			fclean all
 
-.PHONY: all clean fclean re
+.PHONY:		all bonus clean fclean re

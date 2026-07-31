@@ -15,21 +15,20 @@
 /// @brief Sorts 2 elements in stack A.
 /// @param stack_a The first stack.
 /// @param stack_b The second stack.
-void	sort_2_elems(t_stack **stack_a, t_stack **stack_b)
+void	sort_two(t_stack **stack_a, t_stack **stack_b)
 {
 	if ((*stack_a)->content > (*stack_a)->next->content)
 		ft_swap(stack_a, stack_b, 'a');
-
 }
 
 /// @brief Sorts 3 elements in stack A.
 /// @param stack_a The first stack.
 /// @param stack_b The second stack.
-void	sort_3_elems(t_stack **stack_a, t_stack **stack_b)
+void	sort_three(t_stack **stack_a, t_stack **stack_b)
 {
 	int	first;
 	int	second;
-	int third;
+	int	third;
 
 	first = (*stack_a)->content;
 	second = (*stack_a)->next->content;
@@ -55,27 +54,31 @@ void	sort_3_elems(t_stack **stack_a, t_stack **stack_b)
 /// @brief Sorts 4 elements in stack A.
 /// @param stack_a The first stack.
 /// @param stack_b The second stack.
-void	sort_4_elems(t_stack **stack_a, t_stack **stack_b)
+void	sort_four(t_stack **stack_a, t_stack **stack_b)
 {
-	int	min_value_pos;
+	int	min_val;
+	int	pos;
 
-	min_value_pos = find_min_value(*stack_a);
-	ft_move_pos_to_top(stack_a, stack_b, min_value_pos, 'a');
+	min_val = find_min_value(*stack_a);
+	pos = find_position(*stack_a, min_val);
+	ft_move_pos_to_top(stack_a, stack_b, pos, 'a');
 	ft_push(stack_a, stack_b, 'b');
-	sort_3_elems(stack_a, stack_b);
+	sort_three(stack_a, stack_b);
 	ft_push(stack_a, stack_b, 'a');
 }
 
 /// @brief Sorts 5 elements in stack A.
 /// @param stack_a The first stack.
 /// @param stack_b The second stack.
-void	sort_5_elems(t_stack **stack_a, t_stack **stack_b)
+void	sort_five(t_stack **stack_a, t_stack **stack_b)
 {
-	int	min_value_pos;
+	int	min_val;
+	int	pos;
 
-	min_value_pos = find_min_value(*stack_a);
-	ft_move_pos_to_top(stack_a, stack_b, min_value_pos, 'a');
+	min_val = find_min_value(*stack_a);
+	pos = find_position(*stack_a, min_val);
+	ft_move_pos_to_top(stack_a, stack_b, pos, 'a');
 	ft_push(stack_a, stack_b, 'b');
-	sort_4_elems(stack_a, stack_b);
+	sort_four(stack_a, stack_b);
 	ft_push(stack_a, stack_b, 'a');
 }

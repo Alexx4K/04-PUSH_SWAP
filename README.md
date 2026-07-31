@@ -136,6 +136,59 @@ La gracia está en que la cantidad de rotaciones va a ser bastante menor, en pro
 
 
 
+## Estrategia adaptativa: umbrales, técnicas y complejidad
+
+El modo `--adaptive` (comportamiento por defecto si no se indica ningún
+selector) elige la estrategia interna en función del **índice de desorden**
+calculado sobre el stack `a` original, antes de mover nada
+(`ft_compute_disorder`, en [`sort/ft_adaptive.c`](sort/ft_adaptive.c)).
+La decisión (`ft_exec_strategy_dispatch`) es:
+
+| Desorden           | Técnica interna                          | Clase (modelo Push_swap) |
+|--------------------|-------------------------------------------|---------------------------|
+| `< 0.2` (bajo)      | Selection sort adaptado (`sort_selection`) | `O(n²)` peor caso |
+| `[0.2, 0.5)` (medio)| Chunk sort (`ft_prechunksort`, chunks de tamaño `√n`) | `O(n·√n)` |
+| `>= 0.5` (alto)     | Radix sort LSD sobre los índices de rango (`ft_radix_sort`) | `O(n·log n)` |
+
+**Justificación de los umbrales:**
+
+- `0.2` marca el punto en el que el coste de un algoritmo cuadrático
+  (proporcional al nº de inversiones) deja de ser competitivo frente al
+  chunk sort: con pocas inversiones, `sort_selection` mueve pocos elementos
+  fuera de sitio y el nº de rotaciones se mantiene bajo en la práctica,
+  aunque su cota teórica siga siendo `O(n²)`.
+- `0.5` es el desorden esperado de una entrada **totalmente aleatoria**
+  (en promedio, la mitad de los pares están invertidos). Por eso, a partir
+  de ese punto se usa el algoritmo más robusto en el peor caso (radix
+  sort), que no depende del nº de inversiones sino del nº de bits de los
+  índices (`log₂ n` pasadas), garantizando un buen rendimiento incluso en
+  el caso más desordenado posible.
+
+**Cotas de espacio:** todas las estrategias trabajan directamente sobre las
+dos listas doblemente enlazadas (`t_stack`) que ya existen; ninguna reserva
+memoria adicional proporcional a `n` durante la ordenación (el único
+`malloc` proporcional a `n` es la construcción inicial del stack a partir
+de los argumentos). Por tanto el espacio extra usado por cada estrategia es
+`O(1)`.
+
+**Cotas de tiempo (en nº de operaciones Push_swap):**
+
+- *Selection sort* (`sort/selection_sort.c`): por cada uno de los `n`
+  elementos se busca el mínimo restante (`find_min_value`/`find_position`,
+  `O(n)`) y se rota hasta la cima (como mucho `n/2` rotaciones) antes de
+  empujarlo a `b`; al final se vuelca `b` en `a`. Cota: `O(n²)` operaciones.
+- *Chunk sort* (`sort/ft_chunksort.c`): se reparten los `n` elementos en
+  `√n` chunks de tamaño `√n`; cada elemento se localiza y se rota dentro de
+  su stack (como mucho `O(√n)` posiciones de media si el stack se mantiene
+  balanceado) y luego se reinserta en orden. Cota: `O(n·√n)` operaciones.
+- *Radix sort LSD* (`sort/ft_radix.c`): se opera sobre los índices de rango
+  `1..n` (nunca sobre los valores originales, que pueden ser negativos o
+  muy grandes), por lo que bastan `⌈log₂ n⌉` pasadas; cada pasada visita
+  los `n` elementos una vez (`ra`/`pb` por elemento). Cota:
+  `O(n·log n)` operaciones.
+- *Adaptativo*: por construcción, el coste total es el de la técnica
+  elegida para el régimen de desorden medido, según la tabla anterior.
+
 ## Idea Estructura de archivos
 
 ```shell
@@ -144,27 +197,33 @@ La gracia está en que la cantidad de rotaciones va a ser bastante menor, en pro
     flags.c
     flags_comparing.c
     parser.c
+    tokenizer.c
     utils.c
- 
-  sort/
-  ft_adaptative.c
-  ft_chunksort.c
-  ft_radix.c
-  selection_sort.c
-  small_sort.c
-  sorting_utils.c
-   
-  stack/
-  ft_push.c
-  ft_rotate.c
-  ft_swap.c
 
-  tests/
-  test_indexed_sort.c
-  testing_main.c
-  testSortSel.c
+  sort/
+    ft_adaptive.c
+    ft_chunksort.c
+    ft_radix.c
+    selection_sort.c
+    small_sort.c
+    sorting_utils.c
+
+  stack/
+    ft_push.c
+    ft_rotate.c
+    ft_swap.c
+
+  tests/                 (no se entrega ni se evalúa, ver VII del subject)
+    test_indexed_sort.c
+    test_indexed_checks.c
+    test_indexed_print.c
+    testing_main.c
+    testing_print.c
+    testing_utils.c
+    testSortSel.c
 
   ft_bench.c
+  libft/                 (con su propio Makefile)
   linked_lists.c
   list_utils.c
   main.c
@@ -180,4 +239,14 @@ La gracia está en que la cantidad de rotaciones va a ser bastante menor, en pro
 
 - El formato de entrada son: flags -> números
   - No puede haber flags entre medias o después de los números.
+- Selectores de estrategia: `--simple`, `--medium`, `--complex`,
+  `--adaptive` (por defecto). `--bench` (opcional, combinable con
+  cualquier selector) imprime en `stderr` el desorden, la estrategia usada
+  y el desglose de operaciones por tipo.
+
+## Contribuciones
+
+_Pendiente de completar por crubio-p y aarellan: detallar aquí qué partes
+del código ha implementado cada estudiante, tal y como exige el apartado
+VI.1 del subject._
 

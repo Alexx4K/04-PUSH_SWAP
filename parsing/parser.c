@@ -96,17 +96,15 @@ void	store_number(char *str, int *numbers, int *count, char **nbr_strs)
 }
 
 /// @brief Parses arguments and stores the numbers and flags in their arrays
-/// @param nbr_strs Arguments passed by the user (everything except the program name).
-/// @param flag_count list of flags (0 if not appeared, 1 if present, controls duplicate).
+/// @param nbr_strs Arguments passed by the user (everything but the program
+/// name).
+/// @param flag_count list of flags (0 if not appeared, 1 if present,
+/// controls duplicate).
 /// @param numbers array of numbers after atol.
-/// @todo divide in two steps, first flags. When no more flags start processing
-/// numbers.
-/// 
-void	token_parse(char **nbr_strs, int *flag_count, int *numbers)
+void	parse_tokens(char **nbr_strs, int *flag_count, int *numbers, int *count)
 {
 	int	j;
 	int	type;
-	int	*count;
 
 	j = 0;
 	*count = 0;
