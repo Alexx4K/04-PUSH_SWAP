@@ -19,7 +19,7 @@ RM			=	rm -f
 LIBFT_DIR	=	include
 LIBFT		=	$(LIBFT_DIR)/libft.a
 
-INCLUDES	=	-Iinclude
+INCLUDES	=	-Iinclude -I.
 
 SRCS		=	main.c \
 				ft_bench.c \
@@ -58,6 +58,7 @@ clean:
 
 fclean:		clean
 			$(RM) $(NAME)
+
 
 re:			fclean all
 
