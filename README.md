@@ -270,8 +270,6 @@ stack `a`.
 
 ## Recursos
 
-- [Subject de Push_swap](https://cdn.intra.42.fr/pdf/pdf/96069/en.subject.pdf):
-  reglas, formato de entrada y criterios generales del proyecto.
 - [Inversion (discrete mathematics)](https://en.wikipedia.org/wiki/Inversion_(discrete_mathematics)):
   definición de inversiones usada para calcular el desorden.
 - [Selection sort](https://en.wikipedia.org/wiki/Selection_sort): base del
@@ -280,9 +278,7 @@ stack `a`.
   procesamiento estable por dígitos o bits.
 - [Big O notation](https://en.wikipedia.org/wiki/Big_O_notation): referencia
   para expresar y comparar las cotas de complejidad.
-- Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest y Clifford Stein,
-  *Introduction to Algorithms*: referencia general sobre corrección,
-  complejidad y algoritmos de ordenación.
+- Peer2peer con compañeros estudiantes.
 
 ### Uso de inteligencia artificial
 
@@ -299,5 +295,9 @@ El proyecto se ha desarrollado conjuntamente por `crubio-p` y `aarellan`, con
 trabajo compartido en la estructura de stacks, el parsing, las operaciones, la
 integración de algoritmos, el benchmark, las pruebas y la documentación.
 
-> Antes de la entrega, este apartado debe completarse con el reparto individual
-> exacto de tareas acordado por ambos autores, tal como exige el subject.
+Concretamente, hemos separado el desarrollo del proyecto en dos secciones muy diferenciadas:
+
+- `aarellan`: toda la parte del parseo, lectura de argumentos, inicialización de los stacks.
+- `crubio-p`: la implementación de los algoritmos de ordenación.
+
+Y los demás puntos se han hecho en común.
