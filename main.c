@@ -6,7 +6,7 @@
 /*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 14:49:18 by aarellan          #+#    #+#             */
-/*   Updated: 2026/08/02 20:27:59 by crubio-p, aarell ###   ########.fr       */
+/*   Updated: 2026/08/02 21:21:30 by crubio-p, aarell ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	run_sort(t_data *data)
 {
 	bench_reset();
 	if (data->count == 0 && data->count == 1)
-		return;
+		return ;
 	else if (data->count == 2)
 		sort_two(&data->a, &data->b);
 	else if (data->count == 3)

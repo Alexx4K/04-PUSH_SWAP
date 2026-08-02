@@ -6,7 +6,7 @@
 /*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 14:22:16 by aarellan          #+#    #+#             */
-/*   Updated: 2026/08/02 20:26:35 by crubio-p, aarell ###   ########.fr       */
+/*   Updated: 2026/08/02 21:21:14 by crubio-p, aarell ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ long	str_to_long(const char *str)
 /// @param numbers
 /// @param count counts the numbers stored.
 /// @param nbr_strs This is used to free the memory in case of error
-/// @todo Why we cast the number to int. Are we working only with int??
 void	store_number(char *str, int *numbers, int *count, char **nbr_strs)
 {
 	long	value;
@@ -105,12 +104,11 @@ void	parse_tokens(char **nbr_strs, int *flag_count, int *numbers, int *count)
 {
 	int	j;
 	int	type;
-	int flag_section;
+	int	flag_section;
 
 	j = 0;
 	*count = 0;
 	flag_section = 1;
-
 	while (flag_section && nbr_strs[j] != NULL)
 	{
 		type = get_flag_type(nbr_strs[j]);

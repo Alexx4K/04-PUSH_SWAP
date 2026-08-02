@@ -1,252 +1,303 @@
 *Este proyecto ha sido creado como parte del currículo de 42 por crubio-p y aarellan.*
 
-## REGLAS
+# push_swap
 
-- Tenéis 2 `stacks`, llamados `a` y `b`.
+## Descripción
 
-- Para empezar:
-  - El stack `a` contiene una cantidad aleatoria de números positivos y/o negativos.
-  - El stack `b` está vacío.
+`push_swap` es un proyecto de algoritmia escrito en C cuyo objetivo es ordenar
+una secuencia de enteros utilizando dos stacks, `a` y `b`, y un conjunto muy
+limitado de operaciones.
 
-- El objetivo es ordenar los números del stack `a` en orden ascendente. Para hacerlo están disponibles las siguientes operaciones:
+Al comenzar, `a` contiene todos los valores recibidos y `b` está vacío. El
+programa no muestra la lista ordenada: escribe en la salida estándar la
+secuencia de instrucciones de Push_swap que permite ordenar `a` de menor a
+mayor. El reto consiste en producir una secuencia correcta y lo más corta
+posible.
 
-### Operaciones
+Esta implementación normaliza primero los valores a índices de rango `1..n`.
+Así conserva el orden relativo de enteros negativos, positivos o muy grandes y
+permite que todas las estrategias trabajen sobre el mismo dominio.
 
-- `sa` (`swap a`): Intercambia los dos primeros elementos del stack `a`.
-  No hace nada si hay solo uno o ningún elemento.
+Además de algoritmos específicos para entradas de hasta cinco elementos, el
+proyecto integra cuatro modos de ordenación:
 
-- `sb` (`swap b`): Intercambia los dos primeros elementos del stack `b`.
-  No hace nada si hay solo uno o ningún elemento.
+- **Simple:** selection sort adaptado.
+- **Medium:** chunk sort con chunks de tamaño aproximado `√n`.
+- **Complex:** radix sort LSD binario.
+- **Adaptive:** selecciona automáticamente una de las tres estrategias
+  anteriores según el desorden inicial. Es el modo predeterminado.
 
-- `ss`: `sa` y `sb` a la vez.
+## Reglas y operaciones disponibles
 
-- `pa` (`push a`): Toma el primer elemento del stack `b` y lo coloca el primero en el stack `a`.
-  No hace nada si `b` está vacío.
+Solo se pueden modificar los stacks mediante estas once operaciones:
 
-- `pb` (`push b`): Toma el primer elemento del stack `a` y lo coloca el primero en el stack `b`.
-  No hace nada si `a` está vacío.
+| Operación | Efecto |
+|---|---|
+| `sa` | Intercambia los dos primeros elementos de `a`. |
+| `sb` | Intercambia los dos primeros elementos de `b`. |
+| `ss` | Ejecuta `sa` y `sb` simultáneamente. |
+| `pa` | Mueve el primer elemento de `b` a la cima de `a`. |
+| `pb` | Mueve el primer elemento de `a` a la cima de `b`. |
+| `ra` | Rota `a` hacia arriba: el primer elemento pasa al final. |
+| `rb` | Rota `b` hacia arriba: el primer elemento pasa al final. |
+| `rr` | Ejecuta `ra` y `rb` simultáneamente. |
+| `rra` | Rota `a` hacia abajo: el último elemento pasa al principio. |
+| `rrb` | Rota `b` hacia abajo: el último elemento pasa al principio. |
+| `rrr` | Ejecuta `rra` y `rrb` simultáneamente. |
 
-- `ra` (`rotate a`): Desplaza hacia arriba todos los elementos del stack `a` una posición, convirtiendo el primer elemento en el último.
+Una operación que no pueda aplicarse por falta de elementos no modifica el
+stack correspondiente.
 
-- `rb` (`rotate b`): Desplaza hacia arriba todos los elementos del stack `b` una posición, convirtiendo el primer elemento en el último.
+## Instrucciones
 
-- `rr`: `ra` y `rb` a la vez.
+### Requisitos
 
-- `rra` (`reverse rotate a`): Desplaza hacia abajo todos los elementos del stack `a` una posición, convirtiendo el último elemento en el primero.
+- Un sistema Unix o compatible.
+- Un compilador de C, como `cc` o `clang`.
+- `make`.
 
-- `rrb` (`reverse rotate b`): Desplaza hacia abajo todos los elementos del stack `b` una posición, convirtiendo el último elemento en el primero.
+### Compilación
 
-- `rrr`: `rra` y `rrb` a la vez.
+```sh
+make
+```
 
+Esto genera el ejecutable `push_swap`. También están disponibles las reglas
+habituales:
 
-## VI.3. Requisitos del algoritmo
+```sh
+make clean    # elimina los objetos
+make fclean   # elimina los objetos y el ejecutable
+make re       # recompila el proyecto desde cero
+```
 
-Para asegurar un buen entendimiento de la complejidad algorítmica (*tiempo y espacio*), se deben implementar cuatro estrategias de ordenación distintas e integrarlas todas en el programa `push_swap`.
+### Ejecución
 
-Además, el programa debe ser capaz de seleccionar una estrategia u otra durante la ejecución, en función de la configuración de entrada.
+Los enteros pueden pasarse como argumentos separados o dentro de una cadena:
 
-## VI.3.1. Modelo de complejidad y restricciones
+```sh
+./push_swap 4 2 1 3
+./push_swap "4 2 1 3"
+```
 
-Todas las estrategias deben ser implementadas en C y deben generar secuencias de operaciones de Push_swap para ordenar los elementos. Esto significa que:
+Ejemplo de salida:
 
-- Los algoritmos en C analizan la entrada y generan la secuencia adecuada de operaciones para ordenarla: `sa`, `sb`, `ss`, `pa`, `pb`, `ra`, `rb`, `rr`, `rra`, `rrb`, `rrr`.
+```text
+pb
+sa
+ra
+pa
+```
 
-- La salida por consola de esta estrategia deberá ser la secuencia de operaciones necesarias para ordenar el stack.
+La salida real depende de la entrada y de la estrategia escogida. Si no se
+indica un selector, se utiliza el modo adaptativo:
 
-- Al expresar la complejidad, debe medirse en función del **número de operaciones de Push_swap que el programa produce**, y no en base a la complejidad teórica de un algoritmo tradicional sobre arrays.
+```sh
+./push_swap --adaptive 8 3 6 1 5
+./push_swap --simple 8 3 6 1 5
+./push_swap --medium 8 3 6 1 5
+./push_swap --complex 8 3 6 1 5
+```
 
-## VI.3.2. Índice de desorden (obligatorio)
+Los selectores de estrategia son mutuamente excluyentes, deben aparecer antes
+de los números y no pueden repetirse. `--bench` sí puede combinarse con uno de
+ellos:
 
-En este proyecto, el **desorden** corresponde a un número entre `0` y `1` que refleja lo lejos que el stack `a` se encuentra de estar ordenado al comienzo del programa.
+```sh
+./push_swap --bench --complex 8 3 6 1 5 > operations.txt
+```
 
-Si todos los números están en orden, el índice de desorden será `0`. Si los números están lo más desordenados posibles, el índice de desorden será `1`. Todo lo que haya entre medias significará que el stack se encuentra parcialmente ordenado, pero sigue teniendo desorden.
+La secuencia de operaciones se escribe en `stdout`; el informe de benchmark se
+escribe en `stderr` e incluye el desorden, la estrategia, el total de
+operaciones y el desglose por instrucción.
 
-Para calcular el índice de desorden, imagina que observas todos los pares posibles de números en el stack. Cada vez que un número mayor aparece antes que uno menor, consideramos que hay un *error* en el orden. Cuantos más errores haya, mayor será el índice de desorden, acercándose al valor `1`, que refleja el desorden absoluto.
+Para contar las operaciones generadas:
+
+```sh
+ARG="8 3 6 1 5"
+./push_swap $ARG | wc -l
+```
+
+Si se dispone del checker oficial, se puede validar el resultado con:
+
+```sh
+ARG="8 3 6 1 5"
+./push_swap $ARG | ./checker_linux $ARG
+```
+
+El programa rechaza valores que no sean enteros, números fuera del rango de
+`int`, duplicados, flags desconocidos y combinaciones de estrategia
+incompatibles. En esos casos escribe `Error` en la salida de error.
+
+## Índice de desorden
+
+El desorden mide lo lejos que se encuentra el stack inicial de estar ordenado.
+Su valor está comprendido entre `0` y `1`:
+
+- `0`: todos los pares están en el orden correcto.
+- `1`: todos los pares están invertidos.
+- Un valor intermedio representa una entrada parcialmente ordenada.
+
+Para calcularlo se examinan todos los pares `(i, j)` con `i < j`. Existe una
+inversión cuando `a[i] > a[j]`:
+
+```text
+desorden = número de inversiones / número total de pares
+```
+
+Pseudocódigo:
 
 ```c
 function compute_disorder(stack a):
 	mistakes = 0
 	total_pairs = 0
-	for i from 0 to size(a)-1:
-		for j from i+1 to size(a)-1:
+	for i from 0 to size(a) - 1:
+		for j from i + 1 to size(a) - 1:
 			total_pairs += 1
 			if a[i] > a[j]:
 				mistakes += 1
 	return mistakes / total_pairs
 ```
 
-## VI.3.3. Estrategias requeridas
+El cálculo realiza `O(n²)` comparaciones en C, pero no genera ninguna
+operación Push_swap. Por ello no aumenta la longitud de la solución producida.
 
-1. **Algoritmo simple (O(n²)):**
+## Algoritmos seleccionados
 
-   Implementa al menos **un algoritmo** base perteneciente a la clase de complejidad **O(n²)**. Por ejemplo:
+La complejidad indicada a continuación se expresa principalmente en **número
+de operaciones Push_swap emitidas**, tal como exige el proyecto, y no solo en
+operaciones internas sobre arrays o listas.
 
-   - Adaptación del orden por inserción
-   - Adaptación del orden por selección <- Buscamos cuál va a ser el valor del mínimo actual en  el stack (recorriendo la lista)
-   - Adaptación del orden burbuja
-   - Métodos simples de extracción del mínimo/máximo
+### Casos pequeños: de 2 a 5 elementos
 
-### (Selection  Sort) - Adaptación del orden por selección
+Antes de aplicar cualquier estrategia general, las entradas de hasta cinco
+elementos se resuelven mediante casos especializados. Dos y tres valores se
+ordenan con combinaciones directas de `sa`, `ra` y `rra`; para cuatro y cinco
+se extrae el mínimo, se ordena el resto y se vuelve a insertar. Esto evita el
+coste fijo de un algoritmo general en entradas pequeñas.
 
-1. Buscamos cuál va a ser el valor del mínimo actual en  el stack (recorriendo la lista) y nos guardamos cuál es ese valor.
-2. Empiezo a rotar hasta que arriba esté el focking valor.
-3. Pusheas a stack_b
-4. Después de hacer todo eso -> Pushear todo b en a hasta vaciar el stack.
+### Simple: selection sort adaptado
 
----
+En cada iteración se localiza el menor valor de `a`, se lleva a la cima por el
+camino más corto (`ra` o `rra`) y se envía a `b` con `pb`. Cuando `a` queda
+vacío, todos los elementos regresan mediante `pa`.
 
-2. **Algoritmo intermedio (O(n√n)):**
+La estrategia es sencilla, determinista y adecuada cuando hay poco desorden.
+En el peor caso puede requerir `O(n²)` operaciones, porque para cada uno de los
+`n` elementos puede ser necesario recorrer mediante rotaciones una parte
+lineal del stack. Utiliza `O(1)` espacio auxiliar durante la ordenación.
 
-   Implementa al menos **un algoritmo** perteneciente a la clase de complejidad **O(n√n)**. Por ejemplo:
+### Medium: chunk sort
 
-   - Orden basado en chunks (dividiendo en √n chunks)
-   - Métodos de partición basados en bloques
-   - Adaptaciones del orden por buckets con √n buckets
-   - Estrategias de orden basadas en rangos
+Los índices se dividen en intervalos de tamaño `⌊√n⌋`. Cada chunk se
+traslada de `a` a `b`; los valores de su mitad inferior se rotan en `b` para
+agruparlos y reducir movimientos posteriores. Finalmente se busca en `b` el
+índice máximo restante, se lleva a la cima por el camino más corto y se
+devuelve a `a`. La reinserción descendente deja `a` ordenado de forma
+ascendente.
 
-### (Chunk Sort) - Orden basado en chunks (dividiendo en √n chunks)
-1. Calculamos el tamaño de cada chunk -> Va a ser de tamaño √n, siendo n la cantidad de elementos.
-2. Vamos metiendo los valores de chunk en chunk.
-	- Para optimizar la colocación, podemos decidir añadirlos de forma que queden en la cima o abajo según pertenece a una de las mitades del chunk.
+El uso de chunks reduce la distancia media de las rotaciones frente al método
+de selección. Su objetivo de rendimiento es `O(n·√n)` operaciones en entradas
+distribuidas de forma habitual; una distribución adversa puede elevar el peor
+caso a `O(n²)`. El espacio auxiliar de la fase de ordenación es `O(1)`.
 
-		```c
-			if (indice < mitad_del_chunk)
-				pb();
-				rb();
-			else
-				pb();
-		```
-3. Y luego vamos pusheándolos de vuelta igual.
+### Complex: radix sort LSD binario
 
-La gracia está en que la cantidad de rotaciones va a ser bastante menor, en promedio, que de la otra manera.
+Radix opera sobre los índices de rango, nunca sobre los valores originales.
+Por cada bit, de menos a más significativo, recorre los `n` elementos de `a`:
 
-
----
-
-3. **Algoritmo complejo (O(n log n)):**
-
-   Implementa al menos **un algoritmo** perteneciente a la clase de complejidad **O(n log n)**. Por ejemplo:
-
-   - Adaptación del orden radix (LSD o MSD)
-   - Adaptación del orden por fusión utilizando dos stacks
-   - Adaptación del orden rápido con partición por stacks
-   - Adaptación del orden por montículos
-   - Algoritmos de árbol binario indexado<>
-
-
-
-
-## Estrategia adaptativa: umbrales, técnicas y complejidad
-
-El modo `--adaptive` (comportamiento por defecto si no se indica ningún
-selector) elige la estrategia interna en función del **índice de desorden**
-calculado sobre el stack `a` original, antes de mover nada
-(`ft_compute_disorder`, en [`sort/ft_adaptive.c`](sort/ft_adaptive.c)).
-La decisión (`ft_exec_strategy_dispatch`) es:
-
-| Desorden           | Técnica interna                          | Clase (modelo Push_swap) |
-|--------------------|-------------------------------------------|---------------------------|
-| `< 0.2` (bajo)      | Selection sort adaptado (`sort_selection`) | `O(n²)` peor caso |
-| `[0.2, 0.5)` (medio)| Chunk sort (`ft_prechunksort`, chunks de tamaño `√n`) | `O(n·√n)` |
-| `>= 0.5` (alto)     | Radix sort LSD sobre los índices de rango (`ft_radix_sort`) | `O(n·log n)` |
-
-**Justificación de los umbrales:**
-
-- `0.2` marca el punto en el que el coste de un algoritmo cuadrático
-  (proporcional al nº de inversiones) deja de ser competitivo frente al
-  chunk sort: con pocas inversiones, `sort_selection` mueve pocos elementos
-  fuera de sitio y el nº de rotaciones se mantiene bajo en la práctica,
-  aunque su cota teórica siga siendo `O(n²)`.
-- `0.5` es el desorden esperado de una entrada **totalmente aleatoria**
-  (en promedio, la mitad de los pares están invertidos). Por eso, a partir
-  de ese punto se usa el algoritmo más robusto en el peor caso (radix
-  sort), que no depende del nº de inversiones sino del nº de bits de los
-  índices (`log₂ n` pasadas), garantizando un buen rendimiento incluso en
-  el caso más desordenado posible.
-
-**Cotas de espacio:** todas las estrategias trabajan directamente sobre las
-dos listas doblemente enlazadas (`t_stack`) que ya existen; ninguna reserva
-memoria adicional proporcional a `n` durante la ordenación (el único
-`malloc` proporcional a `n` es la construcción inicial del stack a partir
-de los argumentos). Por tanto el espacio extra usado por cada estrategia es
-`O(1)`.
-
-**Cotas de tiempo (en nº de operaciones Push_swap):**
-
-- *Selection sort* (`sort/selection_sort.c`): por cada uno de los `n`
-  elementos se busca el mínimo restante (`find_min_value`/`find_position`,
-  `O(n)`) y se rota hasta la cima (como mucho `n/2` rotaciones) antes de
-  empujarlo a `b`; al final se vuelca `b` en `a`. Cota: `O(n²)` operaciones.
-- *Chunk sort* (`sort/ft_chunksort.c`): se reparten los `n` elementos en
-  `√n` chunks de tamaño `√n`; cada elemento se localiza y se rota dentro de
-  su stack (como mucho `O(√n)` posiciones de media si el stack se mantiene
-  balanceado) y luego se reinserta en orden. Cota: `O(n·√n)` operaciones.
-- *Radix sort LSD* (`sort/ft_radix.c`): se opera sobre los índices de rango
-  `1..n` (nunca sobre los valores originales, que pueden ser negativos o
-  muy grandes), por lo que bastan `⌈log₂ n⌉` pasadas; cada pasada visita
-  los `n` elementos una vez (`ra`/`pb` por elemento). Cota:
-  `O(n·log n)` operaciones.
-- *Adaptativo*: por construcción, el coste total es el de la técnica
-  elegida para el régimen de desorden medido, según la tabla anterior.
-
-## Idea Estructura de archivos
-
-```shell
-
-  parsing/
-    flags.c
-    flags_comparing.c
-    parser.c
-    tokenizer.c
-    utils.c
-
-  sort/
-    ft_adaptive.c
-    ft_chunksort.c
-    ft_radix.c
-    selection_sort.c
-    small_sort.c
-    sorting_utils.c
-
-  stack/
-    ft_push.c
-    ft_rotate.c
-    ft_swap.c
-
-  tests/                 (no se entrega ni se evalúa, ver VII del subject)
-    test_indexed_sort.c
-    test_indexed_checks.c
-    test_indexed_print.c
-    testing_main.c
-    testing_print.c
-    testing_utils.c
-    testSortSel.c
-
-  ft_bench.c
-  libft/                 (con su propio Makefile)
-  linked_lists.c
-  list_utils.c
-  main.c
-  Makefile
-  push_swap.c
-  push_swap.h
-  README.md
-
+```c
+if (((index >> current_bit) & 1) == 0)
+	pb();
+else
+	ra();
 ```
 
+Los elementos cuyo bit vale `0` pasan a `b`; los que tienen un `1` rotan y
+permanecen en `a`. Al terminar cada pasada, todos los valores de `b` vuelven a
+`a`. La estabilidad de este reparto conserva el orden obtenido en los bits
+anteriores.
 
-## NOTAS
+Se necesitan `⌈log₂ n⌉` pasadas y cada una produce `O(n)` instrucciones,
+por lo que la complejidad es `O(n·log n)` operaciones Push_swap, con `O(1)`
+espacio auxiliar durante la ordenación. Su rendimiento no depende del número
+inicial de inversiones, lo que lo hace apropiado para entradas muy
+desordenadas.
 
-- El formato de entrada son: flags -> números
-  - No puede haber flags entre medias o después de los números.
-- Selectores de estrategia: `--simple`, `--medium`, `--complex`,
-  `--adaptive` (por defecto). `--bench` (opcional, combinable con
-  cualquier selector) imprime en `stderr` el desorden, la estrategia usada
-  y el desglose de operaciones por tipo.
+### Adaptive: selección según el desorden
+
+El modo predeterminado calcula el desorden antes de mover ningún elemento y
+aplica estos umbrales:
+
+| Desorden inicial | Estrategia elegida | Complejidad esperada en operaciones |
+|---|---|---|
+| `< 0.2` | Selection sort adaptado | `O(n²)` en el peor caso |
+| `[0.2, 0.5)` | Chunk sort | `O(n·√n)` objetivo; `O(n²)` peor caso |
+| `>= 0.5` | Radix sort LSD | `O(n·log n)` |
+
+El umbral `0.2` reserva selection sort para entradas con pocas inversiones,
+donde suele necesitar pocas rotaciones pese a su cota cuadrática. El valor
+`0.5` coincide con el desorden esperado de una permutación aleatoria: en
+promedio, la mitad de sus pares están invertidos. A partir de ahí se elige
+radix, cuya cantidad de pasadas depende de los bits de `n` y no del orden
+inicial.
+
+El coste en operaciones del modo adaptativo es el de la estrategia elegida. La
+selección previa requiere `O(n²)` comparaciones internas para medir el desorden,
+pero no emite instrucciones Push_swap.
+
+## Complejidad espacial
+
+Las estrategias trabajan directamente sobre las dos listas doblemente
+enlazadas y no reservan memoria proporcional a `n` durante la ordenación, por
+lo que usan `O(1)` espacio auxiliar en esa fase. La preparación inicial sí usa
+`O(n)` memoria para tokenizar, validar, indexar los argumentos y construir el
+stack `a`.
+
+## Estructura del proyecto
+
+```text
+.
+├── main.c                 # entrada, selección y ejecución de estrategia
+├── ft_bench.c             # contadores e informe de operaciones
+├── parsing/               # flags, tokenización y validación
+├── sort/                  # algoritmos y utilidades de ordenación
+├── stack/                 # implementación de las 11 operaciones
+├── include/               # libft y cabeceras asociadas
+├── push_swap.h            # tipos y prototipos del proyecto
+└── Makefile
+```
+
+## Recursos
+
+- [Subject de Push_swap](https://cdn.intra.42.fr/pdf/pdf/96069/en.subject.pdf):
+  reglas, formato de entrada y criterios generales del proyecto.
+- [Inversion (discrete mathematics)](https://en.wikipedia.org/wiki/Inversion_(discrete_mathematics)):
+  definición de inversiones usada para calcular el desorden.
+- [Selection sort](https://en.wikipedia.org/wiki/Selection_sort): base del
+  algoritmo simple, adaptada aquí a las operaciones de dos stacks.
+- [Radix sort](https://en.wikipedia.org/wiki/Radix_sort): fundamentos del
+  procesamiento estable por dígitos o bits.
+- [Big O notation](https://en.wikipedia.org/wiki/Big_O_notation): referencia
+  para expresar y comparar las cotas de complejidad.
+- Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest y Clifford Stein,
+  *Introduction to Algorithms*: referencia general sobre corrección,
+  complejidad y algoritmos de ordenación.
+
+### Uso de inteligencia artificial
+
+Se ha utilizado IA generativa como apoyo para estructurar y redactar este
+README, convertir las reglas del subject en explicaciones accesibles y
+contrastar los ejemplos, flags y descripciones algorítmicas con el código del
+repositorio. La revisión de la implementación, la validación de su
+comportamiento y la responsabilidad sobre el contenido final corresponden a
+los autores.
 
 ## Contribuciones
 
-_Pendiente de completar por crubio-p y aarellan: detallar aquí qué partes
-del código ha implementado cada estudiante, tal y como exige el apartado
-VI.1 del subject._
+El proyecto se ha desarrollado conjuntamente por `crubio-p` y `aarellan`, con
+trabajo compartido en la estructura de stacks, el parsing, las operaciones, la
+integración de algoritmos, el benchmark, las pruebas y la documentación.
 
+> Antes de la entrega, este apartado debe completarse con el reparto individual
+> exacto de tareas acordado por ambos autores, tal como exige el subject.
