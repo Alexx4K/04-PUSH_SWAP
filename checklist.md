@@ -16,12 +16,7 @@
 
 
 ------------------------------
-- MIRAR TEMA DE PRECOMPILAR LA LIBFT.
 
-- Recortar fuertemente la libft, solo lo que se necesita para el proyecto.
-
-
-- Parsear que los flags solo puedan estar antes de los números.
-- Comprobar que no hay flags duplicados.
-- Ordenación de los 5 elementos en 8 operaciones (en el caso: 4 3 2 1 5)
-- [MAKEFILE] Hacer que compile directamente la libft o coja la precompilada.
+- Revisar includes innecesarios.
+- Norminette.
+- Simulacro del conteo de numeros desordenados.

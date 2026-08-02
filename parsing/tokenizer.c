@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 18:06:25 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/07/30 18:06:25 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/08/02 19:04:15 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ static int	*parse_and_index(char **tokens, int *flag_count, int *count,
 		return (NULL);
 	}
 	parse_tokens(tokens, flag_count, numbers, count);
-	if (has_conflict(flag_count) || has_duplicates(numbers, *count))
+	if (has_conflict(flag_count) || has_duplicates(numbers, *count)
+			|| has_duplicated_flags(flag_count))
 	{
 		free_all(tokens, numbers);
 		error_exit();

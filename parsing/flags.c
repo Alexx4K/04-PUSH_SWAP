@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 13:59:09 by aarellan          #+#    #+#             */
-/*   Updated: 2026/07/30 14:30:57 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/08/02 19:17:00 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,23 @@ int	has_conflict(int *counts)
 		i++;
 	}
 	return (total > 1);
+}
+
+/// @brief Checks if there are duplicated flags.
+/// @param counts Array of flag counts.
+/// @return 1 if there is a conflict, 0 otherwise.
+int	has_duplicated_flags(int *counts)
+{
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		if (counts[i] > 1)
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 /// @brief Initializes the flag counts.

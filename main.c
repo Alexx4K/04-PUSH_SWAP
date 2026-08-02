@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aarellan <aarellan@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 14:49:18 by aarellan          #+#    #+#             */
-/*   Updated: 2026/07/30 18:06:25 by aarellan         ###   ########.fr       */
+/*   Updated: 2026/08/02 19:45:21 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ static int	get_forced_strat(int *flag_count)
 static void	run_sort(t_data *data)
 {
 	bench_reset();
-	if (data->count == 2)
+	if (data->count == 0 && data->count == 1)
+		return;
+	else if (data->count == 2)
 		sort_two(&data->a, &data->b);
 	else if (data->count == 3)
 		sort_three(&data->a, &data->b);

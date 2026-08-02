@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 11:27:45 by plopez-l          #+#    #+#             */
-/*   Updated: 2026/08/02 12:40:50 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/08/02 16:42:58 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ int		*prepare_numbers(int argc, char **argv, int *flag_count, int *count);
 // flags.c
 int		get_flag_type(const char *str);
 int		has_conflict(int *counts);
+int		has_duplicated_flags(int *counts);
 void	ft_init_flags(int *flag_count);
 
 // flags_comparing.c
