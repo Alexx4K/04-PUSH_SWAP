@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 11:27:45 by plopez-l          #+#    #+#             */
-/*   Updated: 2026/07/30 14:31:27 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/08/02 12:40:50 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdbool.h>
 # include <stddef.h>
 # include <stdint.h>
-# include "libft/libft.h"
+# include "libft.h"
 
 // PHASE 2: Stacks and Sorting
 

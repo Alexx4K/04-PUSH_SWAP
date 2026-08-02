@@ -20,7 +20,8 @@
 
 - Recortar fuertemente la libft, solo lo que se necesita para el proyecto.
 
-- Unificar los .h push_swap.h
 
-- EL MAKEFILE INFERNAL
-
+- Parsear que los flags solo puedan estar antes de los números.
+- Comprobar que no hay flags duplicados.
+- Ordenación de los 5 elementos en 8 operaciones (en el caso: 4 3 2 1 5)
+- [MAKEFILE] Hacer que compile directamente la libft o coja la precompilada.
