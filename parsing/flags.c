@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 13:59:09 by aarellan          #+#    #+#             */
-/*   Updated: 2026/08/04 12:53:48 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/08/04 13:12:36 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	has_duplicated_flags(int *counts)
 	while (i <= 4)
 	{
 		if (counts[i] > 1)
-			return (1);		
+			return (1);
 		i++;
 	}
 	return (0);
