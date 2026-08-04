@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 13:59:09 by aarellan          #+#    #+#             */
-/*   Updated: 2026/08/02 20:26:31 by crubio-p, aarell ###   ########.fr       */
+/*   Updated: 2026/08/04 12:53:48 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ int	has_duplicated_flags(int *counts)
 	int	i;
 
 	i = 0;
-	while (i < 4)
+	while (i <= 4)
 	{
 		if (counts[i] > 1)
-			return (1);
+			return (1);		
 		i++;
 	}
 	return (0);

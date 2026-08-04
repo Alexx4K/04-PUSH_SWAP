@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 14:49:18 by aarellan          #+#    #+#             */
-/*   Updated: 2026/08/02 21:21:30 by crubio-p, aarell ###   ########.fr       */
+/*   Updated: 2026/08/04 12:48:43 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	get_forced_strat(int *flag_count)
 static void	run_sort(t_data *data)
 {
 	bench_reset();
-	if (data->count == 0 && data->count == 1)
+	if (data->count == 0 || data->count == 1)
 		return ;
 	else if (data->count == 2)
 		sort_two(&data->a, &data->b);
@@ -56,6 +56,8 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_init_flags(data.flag_count);
 	indexed = prepare_numbers(argc, argv, data.flag_count, &data.count);
+	if (has_duplicated_flags(data.flag_count))
+		error_exit();
 	if (!indexed)
 		return (0);
 	data.a = build_list(indexed, data.count);
