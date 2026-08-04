@@ -118,6 +118,7 @@ ARG="8 3 6 1 5"
 ./push_swap $ARG | wc -l
 ```
 
+#### Uso checker oficial
 Si se dispone del checker oficial, se puede validar el resultado con:
 
 ```sh
@@ -128,6 +129,18 @@ ARG="8 3 6 1 5"
 El programa rechaza valores que no sean enteros, números fuera del rango de
 `int`, duplicados, flags desconocidos y combinaciones de estrategia
 incompatibles. En esos casos escribe `Error` en la salida de error.
+
+
+#### Comandos útiles para testing
+
+```shell
+shuf -i 0-9999 -n 500 > prueba_500_elems.txt ; ./push_swap $(cat prueba_500_elems.txt) | wc -l
+
+shuf -i 0-9999 -n 100 > prueba_500_elems.txt ; ./push_swap $(cat prueba_500_elems.txt) | wc -l
+
+```
+
+
 
 ## Índice de desorden
 

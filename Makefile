@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+         #
+#    By: crubio-p <crubio-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/02 20:29:10 by crubio-p, aarell  #+#    #+#              #
-#    Updated: 2026/08/02 20:29:13 by crubio-p, aarell ###   ########.fr        #
+#    Updated: 2026/08/04 13:38:33 by crubio-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ clean:
 
 fclean:		clean
 			$(RM) $(NAME)
+			$(RM) *.txt
 
 
 re:			fclean all
