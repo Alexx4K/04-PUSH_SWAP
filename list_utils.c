@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 15:15:55 by aarellan          #+#    #+#             */
-/*   Updated: 2026/08/02 20:27:55 by crubio-p, aarell ###   ########.fr       */
+/*   Updated: 2026/08/04 15:36:27 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_stack	*build_list(int *numbers, int count)
 	{
 		node = new_node(numbers[i]);
 		if (!node)
-			return (NULL);
+			return (free_stack(node), NULL);
 		if (!list)
 			list = node;
 		else

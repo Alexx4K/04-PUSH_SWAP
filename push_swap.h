@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 11:27:45 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/08/02 20:28:40 by crubio-p, aarell ###   ########.fr       */
+/*   Updated: 2026/08/04 15:33:46 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ t_stack	*build_list(int *numbers, int count);
 int		*psindex(int *numbers, int count);
 
 // Sorting algos + utils
+int		list_is_sorted(t_stack *stack);
 int		find_position(t_stack *stack, int value);
 int		find_min_value(t_stack *stack);
 int		ft_find_first_chunk_pos(t_stack *stack, int chunk_min, int chunk_max);

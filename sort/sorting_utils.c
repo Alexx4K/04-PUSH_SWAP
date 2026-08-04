@@ -3,14 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
+/*   By: crubio-p <crubio-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 13:02:49 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/08/02 20:27:13 by crubio-p, aarell ###   ########.fr       */
+/*   Updated: 2026/08/04 15:33:02 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	list_is_sorted(t_stack *stack)
+{
+	int expected_index;
+
+	expected_index = 1;
+	while (stack != NULL)
+	{
+		if(stack->content != expected_index)
+			return (0);
+		expected_index++;
+		stack = stack->next;		
+	}
+	return (1);
+}
 
 /// @brief Finds the position of a given value in the stack.
 /// @param stack the stack to search for the value.

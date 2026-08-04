@@ -6,7 +6,7 @@
 #    By: crubio-p <crubio-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/02 20:29:10 by crubio-p, aarell  #+#    #+#              #
-#    Updated: 2026/08/04 13:38:33 by crubio-p         ###   ########.fr        #
+#    Updated: 2026/08/04 14:15:09 by crubio-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME		=	push_swap
 
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -g
 RM			=	rm -f
 
 LIBFT_DIR	=	include

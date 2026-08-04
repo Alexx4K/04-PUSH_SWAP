@@ -6,7 +6,7 @@
 /*   By: crubio-p <crubio-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 14:49:18 by aarellan          #+#    #+#             */
-/*   Updated: 2026/08/04 12:48:43 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/08/04 15:34:30 by crubio-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int	main(int argc, char **argv)
 	if (!indexed)
 		return (0);
 	data.a = build_list(indexed, data.count);
+	if (list_is_sorted(data.a))
+		return (0);
 	free(indexed);
 	data.b = NULL;
 	data.forced_strat = get_forced_strat(data.flag_count);
