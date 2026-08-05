@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: crubio-p <crubio-p@student.42.fr>          +#+  +:+       +#+         #
+#    By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/02 20:29:10 by crubio-p, aarell  #+#    #+#              #
-#    Updated: 2026/08/04 14:15:09 by crubio-p         ###   ########.fr        #
+#    Updated: 2026/08/05 13:41:03 by crubio-p, aarell ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ INCLUDES	=	-Iinclude -I.
 
 SRCS		=	main.c \
 				ft_bench.c \
+				ft_op_output.c \
+				ft_operations.c \
 				linked_lists.c \
 				list_utils.c \
 				push_swap.c \
