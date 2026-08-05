@@ -6,7 +6,7 @@
 /*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 15:22:13 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/08/02 20:27:18 by crubio-p, aarell ###   ########.fr       */
+/*   Updated: 2026/08/05 11:56:35 by crubio-p, aarell ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,11 @@ void	ft_push(t_stack **stack_a, t_stack **stack_b, char operation)
 	if (operation == 'a')
 	{
 		ft_list_push(stack_b, stack_a);
-		bench_count_op(OP_PA);
-		write(1, "pa\n", 3);
+		op_register(OP_PA);
 	}
 	if (operation == 'b')
 	{
 		ft_list_push(stack_a, stack_b);
-		bench_count_op(OP_PB);
-		write(1, "pb\n", 3);
+		op_register(OP_PB);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 11:27:45 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/08/05 10:37:01 by crubio-p, aarell ###   ########.fr       */
+/*   Updated: 2026/08/05 12:23:04 by crubio-p, aarell ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
-typedef enum e_bench_op
+typedef enum e_op
 {
 	OP_SA,
 	OP_SB,
@@ -45,7 +45,13 @@ typedef enum e_bench_op
 	OP_RRB,
 	OP_RRR,
 	OP_COUNT
-}	t_bench_op;
+}	t_op;
+
+typedef enum e_output_mode
+{
+	OUTPUT_OPERATIONS,
+	OUTPUT_MUTE
+}	t_output_mode;
 
 typedef enum e_flag
 {
@@ -105,9 +111,18 @@ float		ft_compute_disorder(t_stack *stack);
 void		ft_exec_strategy_dispatch(t_stack **stack_a, t_stack **stack_b,
 			int forced_strat, float disorder);
 
-// Benchmark
-void		bench_reset(void);
-void		bench_count_op(t_bench_op op);
+// ft_operations.c
+void		op_reset(void);
+void		op_register(t_op op);
+int			op_get_total(void);
+int			op_get_count(t_op op);
+
+// ft_op_output.c
+void		op_set_output_mode(t_output_mode mode);
+void		op_emit(t_op op);
+
+
+
 void		bench_print(float disorder, int forced_strat);
 
 // parser.c

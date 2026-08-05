@@ -6,7 +6,7 @@
 /*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 14:49:18 by aarellan          #+#    #+#             */
-/*   Updated: 2026/08/05 10:39:46 by crubio-p, aarell ###   ########.fr       */
+/*   Updated: 2026/08/05 12:12:29 by crubio-p, aarell ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	get_forced_strat(int *flag_count)
 /// @param data Program state (stacks, flags, disorder index).
 static void	run_sort(t_data *data)
 {
-	bench_reset();
+	op_reset();
 	if (data->count == 0 || data->count == 1)
 		return ;
 	else if (data->count == 2)
@@ -65,6 +65,7 @@ int	main(int argc, char **argv)
 	data.b = NULL;
 	data.forced_strat = get_forced_strat(data.flag_count);
 	data.disorder = ft_compute_disorder(data.a);
+	op_set_output_mode(OUTPUT_OPERATIONS);
 	run_sort(&data);
 	if (is_bench(data.flag_count))
 		bench_print(data.disorder, data.forced_strat);

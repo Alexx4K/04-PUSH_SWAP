@@ -6,7 +6,7 @@
 /*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 19:10:00 by aarellan          #+#    #+#             */
-/*   Updated: 2026/08/02 20:27:44 by crubio-p, aarell ###   ########.fr       */
+/*   Updated: 2026/08/05 12:10:46 by crubio-p, aarell ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,41 @@ static int	*get_counts(void)
 	return (counts);
 }
 
+static t_output_mode	*get_output_mode(void)
+{
+	static t_output_mode	mode = OUTPUT_OPERATIONS;
+
+	return (&mode);
+}
+
+void	op_set_output_mode(t_output_mode mode)
+{
+	*get_output_mode() = mode;
+}
+
+static const char	*op_name(t_op op)
+{
+	static const char	*names[OP_COUNT] = {
+		"sa\n",
+		"sb\n",
+		"ss\n",
+		"pa\n",
+		"pb\n",
+		"ra\n",
+		"rb\n",
+		"rr\n",
+		"rra\n",
+		"rrb\n",
+		"rrr\n"
+	};
+
+	if (op < OP_SA || op >= OP_COUNT)
+		return (NULL);
+	return (names[op]);
+}
+
 /// @brief Resets every operation counter to zero.
-void	bench_reset(void)
+void	op_reset(void)
 {
 	int	*counts;
 	int	i;
@@ -35,9 +68,16 @@ void	bench_reset(void)
 
 /// @brief Increments the counter matching the given operation.
 /// @param op The kind of operation that was just executed.
-void	bench_count_op(t_bench_op op)
+void	op_register(t_op op)
 {
+	const char	*name;
+
+	name = op_name(op);
+	if (!name)
+		return ;
 	get_counts()[op]++;
+	if (*get_output_mode() == OUTPUT_OPERATIONS)
+		write(1, name, ft_strlen(name));
 }
 
 /// @brief Names the strategy actually used, together with its complexity

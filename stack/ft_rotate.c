@@ -6,7 +6,7 @@
 /*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 15:31:30 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/08/02 20:27:21 by crubio-p, aarell ###   ########.fr       */
+/*   Updated: 2026/08/05 11:59:02 by crubio-p, aarell ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,18 @@ void	ft_rotate(t_stack **stack_a, t_stack **stack_b, char operation)
 	if (operation == 'a')
 	{
 		ft_list_rotate(stack_a);
-		bench_count_op(OP_RA);
-		write(1, "ra\n", 3);
+		op_register(OP_RA);
 	}
 	else if (operation == 'b')
 	{
 		ft_list_rotate(stack_b);
-		bench_count_op(OP_RB);
-		write(1, "rb\n", 3);
+		op_register(OP_RB);
 	}
 	else if (operation == 'r')
 	{
 		ft_list_rotate(stack_a);
 		ft_list_rotate(stack_b);
-		bench_count_op(OP_RR);
-		write(1, "rr\n", 3);
+		op_register(OP_RR);
 	}
 }
 
@@ -84,20 +81,17 @@ void	ft_reverse_rotate(t_stack **stack_a, t_stack **stack_b, char operation)
 	if (operation == 'a')
 	{
 		ft_list_reverse_rotate(stack_a);
-		bench_count_op(OP_RRA);
-		write(1, "rra\n", 4);
+		op_register(OP_RRA);
 	}
 	else if (operation == 'b')
 	{
 		ft_list_reverse_rotate(stack_b);
-		bench_count_op(OP_RRB);
-		write(1, "rrb\n", 4);
+		op_register(OP_RRB);
 	}
 	else if (operation == 'r')
 	{
 		ft_list_reverse_rotate(stack_a);
 		ft_list_reverse_rotate(stack_b);
-		bench_count_op(OP_RRR);
-		write(1, "rrr\n", 4);
+		op_register(OP_RRR);
 	}
 }

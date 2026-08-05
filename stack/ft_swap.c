@@ -6,7 +6,7 @@
 /*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 12:31:57 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/08/02 20:27:25 by crubio-p, aarell ###   ########.fr       */
+/*   Updated: 2026/08/05 11:41:31 by crubio-p, aarell ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,16 @@ void	ft_swap(t_stack **stack_a, t_stack **stack_b, char operation)
 	if (operation == 'a')
 	{
 		ft_list_swap(stack_a);
-		bench_count_op(OP_SA);
-		write(1, "sa\n", 3);
+		op_register(OP_SA);
 	}
 	else if (operation == 'b')
 	{
 		ft_list_swap(stack_b);
-		bench_count_op(OP_SB);
-		write(1, "sb\n", 3);
+		op_register(OP_SB);
 	}
 	else if (operation == 's')
 	{
 		ft_ss(stack_a, stack_b);
-		bench_count_op(OP_SS);
-		write(1, "ss\n", 3);
+		op_register(OP_SS);
 	}
 }
