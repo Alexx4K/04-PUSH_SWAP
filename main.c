@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 14:49:18 by aarellan          #+#    #+#             */
-/*   Updated: 2026/08/04 15:34:30 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/08/05 10:39:46 by crubio-p, aarell ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_init_flags(data.flag_count);
 	indexed = prepare_numbers(argc, argv, data.flag_count, &data.count);
-	if (has_duplicated_flags(data.flag_count))
-		error_exit();
 	if (!indexed)
 		return (0);
 	data.a = build_list(indexed, data.count);

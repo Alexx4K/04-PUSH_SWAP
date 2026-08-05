@@ -6,7 +6,7 @@
 /*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 14:22:16 by aarellan          #+#    #+#             */
-/*   Updated: 2026/08/02 21:21:14 by crubio-p, aarell ###   ########.fr       */
+/*   Updated: 2026/08/05 10:38:22 by crubio-p, aarell ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	store_number(char *str, int *numbers, int *count, char **nbr_strs)
 void	parse_tokens(char **nbr_strs, int *flag_count, int *numbers, int *count)
 {
 	int	j;
-	int	type;
+	t_flag	type;
 	int	flag_section;
 
 	j = 0;
@@ -112,7 +112,7 @@ void	parse_tokens(char **nbr_strs, int *flag_count, int *numbers, int *count)
 	while (flag_section && nbr_strs[j] != NULL)
 	{
 		type = get_flag_type(nbr_strs[j]);
-		if (type != -1)
+		if (type != FLAG_INVALID)
 		{
 			flag_count[type]++;
 			j++;
