@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crubio-p <crubio-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 13:02:49 by crubio-p          #+#    #+#             */
-/*   Updated: 2026/08/04 15:33:02 by crubio-p         ###   ########.fr       */
+/*   Updated: 2026/08/05 17:09:15 by crubio-p, aarell ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int	list_is_sorted(t_stack *stack)
 {
-	int expected_index;
+	int	expected_index;
 
 	expected_index = 1;
 	while (stack != NULL)
 	{
-		if(stack->content != expected_index)
+		if (stack->content != expected_index)
 			return (0);
 		expected_index++;
-		stack = stack->next;		
+		stack = stack->next;
 	}
 	return (1);
 }

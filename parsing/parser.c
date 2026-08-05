@@ -6,7 +6,7 @@
 /*   By: crubio-p, aarellan <crubio-p, aarellan@stu +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 14:22:16 by aarellan          #+#    #+#             */
-/*   Updated: 2026/08/05 10:38:22 by crubio-p, aarell ###   ########.fr       */
+/*   Updated: 2026/08/05 17:09:59 by crubio-p, aarell ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,9 @@ void	store_number(char *str, int *numbers, int *count, char **nbr_strs)
 /// @param numbers array of numbers after atol.
 void	parse_tokens(char **nbr_strs, int *flag_count, int *numbers, int *count)
 {
-	int	j;
+	int		j;
 	t_flag	type;
-	int	flag_section;
+	int		flag_section;
 
 	j = 0;
 	*count = 0;
